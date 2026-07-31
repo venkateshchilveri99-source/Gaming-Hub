@@ -46,7 +46,6 @@
             padding: 2rem 1rem;
         }
 
-        /* Header Styling */
         header {
             text-align: center;
             margin-bottom: 2.5rem;
@@ -72,7 +71,6 @@
             letter-spacing: 1px;
         }
 
-        /* Hub Cards Grid */
         .hub-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -101,11 +99,6 @@
             box-shadow: 0 15px 35px rgba(0, 240, 255, 0.35);
         }
 
-        .game-card:active {
-            transform: scale(0.97);
-        }
-
-        /* Thumbnail Container */
         .thumbnail-box {
             position: relative;
             width: 100%;
@@ -121,11 +114,6 @@
             width: 100%;
             height: 100%;
             transition: transform 0.5s ease;
-        }
-
-        .game-card:hover .thumbnail-box img, 
-        .game-card:hover .thumbnail-box svg {
-            transform: scale(1.08);
         }
 
         .badge {
@@ -187,55 +175,29 @@
             box-shadow: 0 4px 15px rgba(0, 240, 255, 0.4);
         }
 
-        /* Pink Card Variant */
-        .pink-card {
-            border-color: rgba(255, 0, 127, 0.3);
-        }
-        .pink-card:hover {
-            border-color: var(--accent-pink);
-            box-shadow: 0 15px 35px rgba(255, 0, 127, 0.35);
-        }
-        .pink-card .badge {
-            border-color: var(--accent-pink);
-            color: var(--accent-pink);
-        }
-        .pink-card .play-btn {
-            background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
-            box-shadow: 0 4px 15px rgba(255, 0, 127, 0.4);
-        }
+        .pink-card { border-color: rgba(255, 0, 127, 0.3); }
+        .pink-card .badge { border-color: var(--accent-pink); color: var(--accent-pink); }
+        .pink-card .play-btn { background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple)); }
 
-        /* Green Card Variant */
-        .green-card {
-            border-color: rgba(0, 255, 102, 0.3);
-        }
-        .green-card:hover {
-            border-color: var(--accent-green);
-            box-shadow: 0 15px 35px rgba(0, 255, 102, 0.35);
-        }
-        .green-card .badge {
-            border-color: var(--accent-green);
-            color: var(--accent-green);
-        }
-        .green-card .play-btn {
-            background: linear-gradient(135deg, var(--accent-green), #0088ff);
-            box-shadow: 0 4px 15px rgba(0, 255, 102, 0.4);
-        }
+        .green-card { border-color: rgba(0, 255, 102, 0.3); }
+        .green-card .badge { border-color: var(--accent-green); color: var(--accent-green); }
+        .green-card .play-btn { background: linear-gradient(135deg, var(--accent-green), #0088ff); }
 
- /* MOBILE FULLSCREEN OVERLAY FIXES */
+        /* FULLSCREEN OVERLAY */
         .fullscreen-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            height: 100dvh; /* True full height on mobile browsers */
-            background-color: #000;
+            height: 100dvh;
+            background-color: #050811;
             z-index: 999999;
             display: flex;
-            flex-direction: column;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.25s ease-in-out;
+            transition: opacity 0.2s ease-in-out;
+            overflow: hidden;
         }
 
         .fullscreen-overlay.active {
@@ -243,64 +205,67 @@
             pointer-events: auto;
         }
 
-        .overlay-header {
-            height: 44px;
-            background-color: #0a0d18;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        .floating-controls {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            right: 16px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 0 0.8rem;
-            flex-shrink: 0;
-            z-index: 10;
+            align-items: center;
+            z-index: 1000000;
+            pointer-events: none;
         }
 
-        .back-btn {
-            background: rgba(255, 255, 255, 0.1);
+        .floating-btn {
+            pointer-events: auto;
+            background: rgba(5, 8, 17, 0.85);
             border: 1px solid var(--accent-cyan);
             color: var(--accent-cyan);
             font-family: 'Orbitron', sans-serif;
             font-weight: 800;
-            font-size: 0.75rem;
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
+            font-size: 0.85rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            backdrop-filter: blur(8px);
             cursor: pointer;
-        }
-
-        .direct-link-btn {
-            color: var(--accent-cyan);
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.75rem;
             text-decoration: none;
-            font-weight: bold;
-            padding: 0.35rem 0.7rem;
-            border: 1px solid rgba(0, 240, 255, 0.4);
-            border-radius: 6px;
-            background: rgba(0, 240, 255, 0.05);
-        }
-
-        .active-game-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }  /* MEDIUM-SIZED CLOSE BUTTON */
+        .close-btn {
+            background: rgba(255, 0, 127, 0.85);
+            border: 2px solid #ffffff;
             color: #fff;
-            letter-spacing: 1px;
-        }
-
-        .iframe-viewport {
-            flex: 1;
-            width: 100%;
-            height: calc(100% - 44px);
-            position: relative;
-            overflow: hidden;
-            background: #000;
-        }
-
-        .scaled-frame-container {
-            width: 100%;
-            height: 100%;
+            width: 48px;
+            height: 48px;
+            padding: 0;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 900;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.6);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .close-btn:active {
+            transform: scale(0.9);
+        }
+
+        .iframe-viewport {
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #000;
         }
 
         .game-iframe {
@@ -309,6 +274,15 @@
             border: 0;
             outline: none;
             display: block;
+        }
+
+        @media (max-width: 600px) {
+            .game-iframe {
+                width: 100%;
+                height: 100%;
+                transform: scale(1.25);
+                transform-origin: center center;
+            }
         }
     </style>
 </head>
@@ -322,7 +296,7 @@
     <main class="hub-container">
         
         <!-- Game 1: 2D Striker -->
-        <article class="game-card" onclick="openGame('https://venkateshchilveri99-source.github.io/2D-stricker/', '2D Striker')">
+        <article class="game-card" onclick="openGame('https://venkateshchilveri99-source.github.io/2D-stricker/')">
             <div class="thumbnail-box">
                 <span class="badge">ARCADE</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
@@ -346,18 +320,6 @@
                         <rect x="159" y="30" width="60" height="15" rx="3" fill="#ff0055"/>
                         <rect x="226" y="30" width="60" height="15" rx="3" fill="#ff0055"/>
                         <rect x="293" y="30" width="60" height="15" rx="3" fill="#ff0055"/>
-
-                        <rect x="25" y="50" width="60" height="15" rx="3" fill="#ff7700"/>
-                        <rect x="92" y="50" width="60" height="15" rx="3" fill="#ff7700"/>
-                        <rect x="226" y="50" width="60" height="15" rx="3" fill="#ff7700"/>
-                        <rect x="293" y="50" width="60" height="15" rx="3" fill="#ff7700"/>
-
-                        <rect x="25" y="70" width="60" height="15" rx="3" fill="#00ff66"/>
-                        <rect x="92" y="70" width="60" height="15" rx="3" fill="#00ff66"/>
-                        <rect x="293" y="70" width="60" height="15" rx="3" fill="#00ff66"/>
-
-                        <rect x="25" y="90" width="60" height="15" rx="3" fill="#00f0ff"/>
-                        <rect x="293" y="90" width="60" height="15" rx="3" fill="#00f0ff"/>
                     </g>
                     <line x1="200" y1="200" x2="190" y2="78" stroke="#00f0ff" stroke-width="2" stroke-dasharray="4" opacity="0.8"/>
                     <circle cx="190" cy="78" r="7" fill="#ffffff" filter="url(#glowEffect)"/>
@@ -374,7 +336,7 @@
         </article>
 
         <!-- Game 2: Reflex -->
-        <article class="game-card green-card" onclick="openGame('https://venkateshchilveri99-source.github.io/Reflex/', 'Reflex')">
+        <article class="game-card green-card" onclick="openGame('https://venkateshchilveri99-source.github.io/Reflex/')">
             <div class="thumbnail-box">
                 <span class="badge">REACTION</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
@@ -384,17 +346,9 @@
                             <stop offset="60%" stop-color="#00cc44"/>
                             <stop offset="100%" stop-color="#003311" stop-opacity="0"/>
                         </radialGradient>
-                        <filter id="superGlow">
-                            <feGaussianBlur stdDeviation="8" result="blur"/>
-                            <feMerge>
-                                <feMergeNode in="blur"/>
-                                <feMergeNode in="SourceGraphic"/>
-                            </feMerge>
-                        </filter>
                     </defs>
                     <rect width="400" height="250" fill="#181534"/>
-                    <circle cx="200" cy="125" r="85" fill="url(#greenGlow)" opacity="0.6"/>
-                    <circle cx="200" cy="125" r="55" fill="#00ff66" filter="url(#superGlow)"/>
+                    <circle cx="200" cy="125" r="55" fill="#00ff66"/>
                 </svg>
             </div>
             <div class="card-body">
@@ -406,67 +360,61 @@
             </div>
         </article>
 
-        <!-- Game 3: Space Shooter (Neo Vectors) -->
-        <article class="game-card pink-card" onclick="openGame('https://venkateshchilveri99-source.github.io/space-shoot/', 'Neo Vectors')">
+        <!-- Game 3: Space Shooting 🚀 -->
+        <article class="game-card pink-card" onclick="openGame('https://venkateshchilveri99-source.github.io/space-shoot/')">
             <div class="thumbnail-box">
                 <span class="badge">ACTION</span>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid meet">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
                     <defs>
                         <linearGradient id="skyBg" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#0b1026"/>
-                            <stop offset="50%" stop-color="#1f0a38"/>
-                            <stop offset="100%" stop-color="#4a0e4e"/>
+                            <stop offset="0%" stop-color="#2a75ff"/>
+                            <stop offset="50%" stop-color="#6033e0"/>
+                            <stop offset="100%" stop-color="#8a18c0"/>
                         </linearGradient>
                         <linearGradient id="rocketBody" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#ffffff"/>
-                            <stop offset="65%" stop-color="#e0e6ed"/>
-                            <stop offset="100%" stop-color="#94a3b8"/>
+                            <stop offset="100%" stop-color="#e2e8f0"/>
                         </linearGradient>
-                        <linearGradient id="redAccent" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#ff4757"/>
-                            <stop offset="100%" stop-color="#ff1144"/>
+                        <linearGradient id="redNose" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ff4d4d"/>
+                            <stop offset="100%" stop-color="#cc0033"/>
                         </linearGradient>
-                        <linearGradient id="windowGlass" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#00f0ff"/>
-                            <stop offset="100%" stop-color="#0066cc"/>
+                        <linearGradient id="fireGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffea00"/>
+                            <stop offset="50%" stop-color="#ff7700"/>
+                            <stop offset="100%" stop-color="#ff0055" stop-opacity="0"/>
                         </linearGradient>
-                        <radialGradient id="thrusterFire" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%" stop-color="#ffee00"/>
-                            <stop offset="40%" stop-color="#ff7700"/>
-                            <stop offset="100%" stop-color="#ff0044" stop-opacity="0"/>
-                        </radialGradient>
                     </defs>
+                    
                     <rect width="400" height="250" fill="url(#skyBg)"/>
-                    <circle cx="50" cy="40" r="1.5" fill="#fff" opacity="0.8"/>
-                    <circle cx="110" cy="180" r="2" fill="#fff" opacity="0.6"/>
-                    <circle cx="340" cy="50" r="2" fill="#fff" opacity="0.9"/>
-                    <circle cx="360" cy="200" r="1.5" fill="#fff" opacity="0.7"/>
+                    
+                    <path d="M -20,220 Q 30,170 90,200 Q 150,160 210,210 Q 270,170 330,220 Z" fill="#ffffff" opacity="0.3"/>
+                    <path d="M 220,250 Q 280,200 340,230 Q 380,190 420,250 Z" fill="#ffffff" opacity="0.5"/>
 
-                    <g transform="translate(200, 125) rotate(-35)">
-                        <path d="M -90,-10 Q -150,0 -180,0 Q -150,0 -90,10 Z" fill="url(#thrusterFire)"/>
-                        <path d="M -40,-35 Q 20,-45 0,-15 Z" fill="url(#redAccent)"/>
-                        <path d="M -40,35 Q 20,45 0,15 Z" fill="url(#redAccent)"/>
-                        <path d="M -70,-20 C -20,-28 40,-25 80,0 C 40,25 -20,28 -70,20 Z" fill="url(#rocketBody)"/>
-                        <path d="M 35,-15 C 55,-10 70,-5 80,0 C 70,5 55,10 35,15 Z" fill="url(#redAccent)"/>
-                        <path d="M -50,0 Q -10,12 10,0 Q -10,-4 -50,0 Z" fill="url(#redAccent)"/>
-                        <circle cx="0" cy="0" r="14" fill="url(#redAccent)"/>
-                        <circle cx="0" cy="0" r="11" fill="#ffffff"/>
-                        <circle cx="0" cy="0" r="8" fill="url(#windowGlass)"/>
+                    <g transform="translate(200, 115) rotate(-35)">
+                        <path d="M -80,0 Q -140,-25 -170,0 Q -140,25 -80,0 Z" fill="url(#fireGrad)"/>
+                        <path d="M -50,-25 Q -80,-60 -10,-45 Z" fill="url(#redNose)"/>
+                        <path d="M -50,25 Q -80,60 -10,45 Z" fill="url(#redNose)"/>
+                        <path d="M -70,-35 C -20,-45 40,-40 90,0 C 40,40 -20,45 -70,35 Z" fill="url(#rocketBody)"/>
+                        <path d="M 35,-22 C 55,-15 75,-8 90,0 C 75,8 55,15 35,22 Z" fill="url(#redNose)"/>
+                        <circle cx="10" cy="0" r="18" fill="#ff4d4d"/>
+                        <circle cx="10" cy="0" r="14" fill="#1e293b"/>
+                        <circle cx="10" cy="0" r="11" fill="#00f0ff"/>
+                        <circle cx="14" cy="-4" r="3" fill="#ffffff" opacity="0.8"/>
                     </g>
-                    <path d="M -20,260 Q 80,200 180,260 Q 280,210 420,260 Z" fill="rgba(255,255,255,0.1)"/>
                 </svg>
             </div>
             <div class="card-body">
                 <div>
-                    <h2 class="game-title">Neo Vectors</h2>
-                    <p class="game-desc">Cosmic retro-wave space shooter. Fight enemy waves, dodge obstacles, and defeat boss flagships.</p>
+                    <h2 class="game-title">Space Shooting 🚀</h2>
+                    <p class="game-desc">Blast off into deep space! Pilot your rocket, dodge incoming hazards, and shoot down alien fleets.</p>
                 </div>
                 <button class="play-btn">LAUNCH GAME ➔</button>
             </div>
         </article>
 
         <!-- Game 4: Quantum Guess -->
-        <article class="game-card" onclick="openGame('https://venkateshchilveri99-source.github.io/Number-Guess-game/', 'Quantum Guess')">
+        <article class="game-card" onclick="openGame('https://venkateshchilveri99-source.github.io/Number-Guess-game/')">
             <div class="thumbnail-box">
                 <span class="badge">PUZZLE</span>
                 <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop" style="object-fit: cover;" alt="Quantum Guess Code Matrix">
@@ -482,37 +430,26 @@
 
     </main>
 
-    <!-- Fullscreen Mobile Game Overlay -->
     <div class="fullscreen-overlay" id="gameOverlay">
-        <div class="overlay-header">
-            <button class="back-btn" onclick="closeGame()">← HUB</button>
-            <span class="active-game-title" id="activeGameTitle">Game</span>
-            <a id="directLink" class="direct-link-btn" href="#" target="_blank">DIRECT ↗</a>
+        <div class="floating-controls">
+            <button class="floating-btn close-btn" onclick="closeGame()">✕</button>
+            <a id="directLink" class="floating-btn" href="#" target="_blank">DIRECT ↗</a>
         </div>
         <div class="iframe-viewport">
-            <div class="scaled-frame-container" id="frameWrapper">
-                <iframe class="game-iframe" id="gameFrame" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
-            </div>
+            <iframe class="game-iframe" id="gameFrame" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-modals"></iframe>
         </div>
     </div>
 
     <script>
-        function openGame(url, title) {
-            // Prevent background page scrolling
+        function openGame(url) {
             document.body.style.overflow = 'hidden';
-            
             const frame = document.getElementById('gameFrame');
-            const wrapper = document.getElementById('frameWrapper');
-            
-            frame.src = url;
-            document.getElementById('activeGameTitle').innerText = title;
+            frame.src = 'about:blank';
+            setTimeout(() => {
+                frame.src = url;
+            }, 50);
             document.getElementById('directLink').href = url;
             document.getElementById('gameOverlay').classList.add('active');
-
-            // Force 100% full screen filling for all games on mobile screens
-            wrapper.style.transform = 'none';
-            wrapper.style.width = '100%';
-            wrapper.style.height = '100%';
         }
 
         function closeGame() {
