@@ -110,16 +110,20 @@
             height: 190px;
             overflow: hidden;
             background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .thumbnail-box img {
+        .thumbnail-box img, .thumbnail-box svg {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
 
-        .game-card:hover .thumbnail-box img {
+        .game-card:hover .thumbnail-box img, 
+        .game-card:hover .thumbnail-box svg {
             transform: scale(1.08);
         }
 
@@ -310,7 +314,74 @@
         <article class="game-card pink-card" onclick="openGame('https://venkateshchilveri99-source.github.io/space-shoot/', 'Neo Vectors')">
             <div class="thumbnail-box">
                 <span class="badge">ACTION</span>
-                <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?q=80&w=800&auto=format&fit=crop" alt="3D Rocket Launch Thumbnail">
+                
+                <!-- 3D Toy Rocket SVG Illustration -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#110d3a"/>
+                            <stop offset="50%" stop-color="#2a085c"/>
+                            <stop offset="100%" stop-color="#6011a3"/>
+                        </linearGradient>
+                        <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffffff"/>
+                            <stop offset="70%" stop-color="#e2e8f0"/>
+                            <stop offset="100%" stop-color="#cbd5e1"/>
+                        </linearGradient>
+                        <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ff4b4b"/>
+                            <stop offset="100%" stop-color="#d90429"/>
+                        </linearGradient>
+                        <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#00f0ff"/>
+                            <stop offset="100%" stop-color="#0077b6"/>
+                        </linearGradient>
+                        <radialGradient id="fireGrad" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#ffea00"/>
+                            <stop offset="50%" stop-color="#ff6d00"/>
+                            <stop offset="100%" stop-color="#d50000" stop-opacity="0"/>
+                        </radialGradient>
+                    </defs>
+                    
+                    <!-- Background Sky -->
+                    <rect width="800" height="500" fill="url(#bgGrad)"/>
+                    
+                    <!-- Clouds & Stars Background -->
+                    <circle cx="150" cy="120" r="3" fill="#ffffff" opacity="0.8"/>
+                    <circle cx="680" cy="90" r="4" fill="#ffffff" opacity="0.9"/>
+                    <circle cx="600" cy="380" r="3" fill="#ffffff" opacity="0.6"/>
+                    <path d="M 50,420 Q 150,320 280,450 T 500,480" fill="rgba(255,255,255,0.15)"/>
+                    
+                    <!-- Rocket Thruster Flame -->
+                    <path d="M 280,310 Q 180,410 120,430 Q 220,350 310,290 Z" fill="url(#fireGrad)"/>
+                    
+                    <!-- 3D Rocket Group -->
+                    <g transform="translate(100, -20) rotate(-15)">
+                        <!-- Right Fin -->
+                        <path d="M 460,260 Q 550,330 520,380 Q 430,340 430,280 Z" fill="url(#redGrad)"/>
+                        
+                        <!-- Left Fin -->
+                        <path d="M 330,210 Q 300,310 240,330 Q 310,240 360,200 Z" fill="url(#redGrad)"/>
+                        
+                        <!-- Center Main Body -->
+                        <path d="M 320,240 C 360,100 520,90 600,160 C 520,280 380,300 320,240 Z" fill="url(#bodyGrad)"/>
+                        
+                        <!-- Nose Cone -->
+                        <path d="M 520,135 C 555,120 580,135 600,160 C 560,195 530,170 520,135 Z" fill="url(#redGrad)"/>
+                        
+                        <!-- Circular Porthole Window -->
+                        <circle cx="470" cy="190" r="38" fill="url(#redGrad)"/>
+                        <circle cx="470" cy="190" r="28" fill="#ffffff"/>
+                        <circle cx="470" cy="190" r="22" fill="url(#glassGrad)"/>
+                        
+                        <!-- Bottom Fin -->
+                        <path d="M 360,260 Q 350,370 290,390 Q 350,320 380,270 Z" fill="url(#redGrad)"/>
+                    </g>
+                    
+                    <!-- Foreground Soft Clouds -->
+                    <path d="M -50,520 Q 100,380 250,520 T 550,520" fill="rgba(255,255,255,0.25)"/>
+                </svg>
+
             </div>
             <div class="card-body">
                 <div>
