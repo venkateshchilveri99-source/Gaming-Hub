@@ -490,4 +490,37 @@
             <a id="directLink" class="direct-link-btn" href="#" target="_blank">OPEN DIRECT ↗</a>
         </div>
         <div class="iframe-viewport">
-            <div class="scaled-frame-container" id="fr
+            <div class="scaled-frame-container" id="id="frameWrapper">
+                <iframe class="game-iframe" id="gameFrame" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openGame(url, title) {
+            document.body.style.overflow = 'hidden';
+            const frame = document.getElementById('gameFrame');
+            const wrapper = document.getElementById('frameWrapper');
+            
+            frame.src = url;
+            document.getElementById('activeGameTitle').innerText = title;
+            document.getElementById('directLink').href = url;
+            document.getElementById('gameOverlay').classList.add('active');
+
+            if (window.innerWidth < 500 && (url.includes('space-shoot') || url.includes('2D-stricker'))) {
+                wrapper.style.transform = 'scale(0.92)';
+                wrapper.style.transformOrigin = 'center center';
+            } else {
+                wrapper.style.transform = 'none';
+            }
+        }
+
+        function closeGame() {
+            document.body.style.overflow = '';
+            document.getElementById('gameOverlay').classList.remove('active');
+            document.getElementById('gameFrame').src = '';
+        }
+    </script>
+
+</body>
+</html>
