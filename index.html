@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>VENKY'S ARCADE HUB</title>
+    <title>VENKY'S ARCADE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
@@ -30,8 +30,8 @@
             min-height: 100vh;
             background-color: var(--bg-color);
             background-image: 
-                radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.15), transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 0, 127, 0.1), transparent 50%);
+                radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.18), transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 0, 127, 0.12), transparent 50%);
             color: var(--text-color);
             font-family: 'Rajdhani', sans-serif;
             overflow-x: hidden;
@@ -53,14 +53,14 @@
 
         header h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2rem, 6vw, 3.2rem);
+            font-size: clamp(2.2rem, 7vw, 3.8rem);
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 4px;
-            background: linear-gradient(135deg, #fff 20%, var(--accent-cyan) 100%);
+            background: linear-gradient(135deg, #ffffff 10%, var(--accent-cyan) 60%, var(--accent-pink) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+            text-shadow: 0 0 25px rgba(0, 240, 255, 0.5);
             margin-bottom: 0.5rem;
         }
 
@@ -285,22 +285,22 @@
 <body>
 
     <header>
-        <h1>🎮VENKY'S GAMING ARCADE🎮</h1>
-        
+        <h1>VENKY'S ARCADE</h1>
+        <p>Select a title to launch game</p>
     </header>
 
     <main class="hub-container">
         
         <!-- Game 1: Number Guessing -->
-        <article class="game-card" onclick="openGame('https://venkateshchilveri99-source.github.io/Number-Guess-game/', 'Number Guess')">
+        <article class="game-card" onclick="openGame('https://venkateshchilveri99-source.github.io/Number-Guess-game/', 'Quantum Guess')">
             <div class="thumbnail-box">
                 <span class="badge">PUZZLE</span>
                 <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop" alt="Quantum Guess Code Matrix">
             </div>
             <div class="card-body">
                 <div>
-                    <h2 class="game-title">Number Guess🎯</h2>
-                    <p class="game-desc">A  Number challenge. Guess secret number with dynamic hints and track your high score.</p>
+                    <h2 class="game-title">Quantum Guess</h2>
+                    <p class="game-desc">A code-cracking number challenge. Guess secret codes with dynamic hints and track your high score.</p>
                 </div>
                 <button class="play-btn">LAUNCH GAME ➔</button>
             </div>
@@ -310,11 +310,11 @@
         <article class="game-card pink-card" onclick="openGame('https://venkateshchilveri99-source.github.io/space-shoot/', 'Neo Vectors')">
             <div class="thumbnail-box">
                 <span class="badge">ACTION</span>
-                <img src="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=800&auto=format&fit=crop" alt="Neo Vectors Cosmic Nebula">
+                <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=800&auto=format&fit=crop" alt="3D Spaceship Neo Vectors">
             </div>
             <div class="card-body">
                 <div>
-                    <h2 class="game-title">Space Shooting 🚀</h2>
+                    <h2 class="game-title">Neo Vectors</h2>
                     <p class="game-desc">Cosmic retro-wave space shooter. Fight enemy waves, dodge obstacles, and defeat boss flagships.</p>
                 </div>
                 <button class="play-btn">LAUNCH GAME ➔</button>
