@@ -221,86 +221,77 @@
             box-shadow: 0 4px 15px rgba(0, 255, 102, 0.4);
         }
 
-        /* MOBILE FULLSCREEN OVERLAY FIXES */
+        /* ULTRA MAX FULLSCREEN OVERLAY */
         .fullscreen-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            height: 100dvh; /* True full height on mobile browsers */
+            height: 100dvh; /* Max height on mobile browsers */
             background-color: #000;
             z-index: 999999;
             display: flex;
-            flex-direction: column;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.25s ease-in-out;
+            transition: opacity 0.2s ease-in-out;
         }
 
         .fullscreen-overlay.active {
             opacity: 1;
             pointer-events: auto;
         }
-
-        .overlay-header {
-            height: 44px;
-            background-color: #0a0d18;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+/* Floating Controls Over Top Of Game */
+        .floating-controls {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            right: 12px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 0 0.8rem;
-            flex-shrink: 0;
-            z-index: 10;
+            align-items: center;
+            z-index: 1000000;
+            pointer-events: none; /* Let touches pass through except on buttons */
         }
 
-        .back-btn {
-            background: rgba(255, 255, 255, 0.1);
+        .floating-btn {
+            pointer-events: auto;
+            background: rgba(5, 8, 17, 0.75);
             border: 1px solid var(--accent-cyan);
             color: var(--accent-cyan);
             font-family: 'Orbitron', sans-serif;
             font-weight: 800;
-            font-size: 0.75rem;
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
+            font-size: 0.85rem;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            backdrop-filter: blur(8px);
             cursor: pointer;
-        }
-
-        .direct-link-btn {
-            color: var(--accent-cyan);
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.75rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             text-decoration: none;
-            font-weight: bold;
-            padding: 0.35rem 0.7rem;
-            border: 1px solid rgba(0, 240, 255, 0.4);
-            border-radius: 6px;
-            background: rgba(0, 240, 255, 0.05);
         }
 
-        .active-game-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
+        .close-btn {
+            background: rgba(255, 0, 127, 0.2);
+            border-color: var(--accent-pink);
             color: #fff;
-            letter-spacing: 1px;
-        }
-
-        .iframe-viewport {
-            flex: 1;
-            width: 100%;
-            height: calc(100% - 44px);
-            position: relative;
-            overflow: hidden;
-            background: #000;
-        }
-
-        .scaled-frame-container {
-            width: 100%;
-            height: 100%;
+            width: 40px;
+            height: 40px;
+            padding: 0;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.2rem;
+            border-radius: 50%;
+        }
+
+        .iframe-viewport {
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #000;
         }
 
         .game-iframe {
@@ -322,7 +313,7 @@
     <main class="hub-container">
         
         <!-- Game 1: 2D Striker -->
-        <article class="game-card" onclick="openGame('https://venkateshchilveri99-source.github.io/2D-stricker/', '2D Striker')">
+        <article class="game-card" onclick="openGame('https://venkateshchilveri99-source.github.io/2D-stricker/')">
             <div class="thumbnail-box">
                 <span class="badge">ARCADE</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
@@ -374,7 +365,7 @@
         </article>
 
         <!-- Game 2: Reflex -->
-        <article class="game-card green-card" onclick="openGame('https://venkateshchilveri99-source.github.io/Reflex/', 'Reflex')">
+        <article class="game-card green-card" onclick="openGame('https://venkateshchilveri99-source.github.io/Reflex/')">
             <div class="thumbnail-box">
                 <span class="badge">REACTION</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
@@ -406,8 +397,8 @@
             </div>
         </article>
 
-        <!-- Game 3: Space Shooter (Neo Vectors) -->
-        <article class="game-card pink-card" onclick="openGame('https://venkateshchilveri99-source.github.io/space-shoot/', 'Neo Vectors')">
+        <!-- Game 3: Space Shooter -->
+        <article class="game-card pink-card" onclick="openGame('https://venkateshchilveri99-source.github.io/space-shoot/')">
             <div class="thumbnail-box">
                 <span class="badge">ACTION</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid meet">
@@ -466,7 +457,7 @@
         </article>
 
         <!-- Game 4: Quantum Guess -->
-        <article class="game-card" onclick="openGame('https://venkateshchilveri99-source.github.io/Number-Guess-game/', 'Quantum Guess')">
+        <article class="game-card" onclick="openGame('https://venkateshchilveri99-source.github.io/Number-Guess-game/')">
             <div class="thumbnail-box">
                 <span class="badge">PUZZLE</span>
                 <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop" style="object-fit: cover;" alt="Quantum Guess Code Matrix">
@@ -482,37 +473,26 @@
 
     </main>
 
-    <!-- Fullscreen Mobile Game Overlay -->
+    <!-- Edge-to-Edge Game Overlay -->
     <div class="fullscreen-overlay" id="gameOverlay">
-        <div class="overlay-header">
-            <button class="back-btn" onclick="closeGame()">← HUB</button>
-            <span class="active-game-title" id="activeGameTitle">Game</span>
-            <a id="directLink" class="direct-link-btn" href="#" target="_blank">DIRECT ↗</a>
+        <div class="floating-controls">
+            <button class="floating-btn close-btn" onclick="closeGame()">✕</button>
+            <a id="directLink" class="floating-btn" href="#" target="_blank">DIRECT ↗</a>
         </div>
         <div class="iframe-viewport">
-            <div class="scaled-frame-container" id="frameWrapper">
-<iframe class="game-iframe" id="gameFrame" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
-            </div>
+            <iframe class="game-iframe" id="gameFrame" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
         </div>
     </div>
 
     <script>
-        function openGame(url, title) {
-            // Prevent background page scrolling
+        function openGame(url) {
             document.body.style.overflow = 'hidden';
             
             const frame = document.getElementById('gameFrame');
-            const wrapper = document.getElementById('frameWrapper');
-            
             frame.src = url;
-            document.getElementById('activeGameTitle').innerText = title;
+            
             document.getElementById('directLink').href = url;
             document.getElementById('gameOverlay').classList.add('active');
-
-            // Force 100% full screen filling for all games on mobile screens
-            wrapper.style.transform = 'none';
-            wrapper.style.width = '100%';
-            wrapper.style.height = '100%';
         }
 
         function closeGame() {
@@ -524,4 +504,3 @@
 
 </body>
 </html>
-           
