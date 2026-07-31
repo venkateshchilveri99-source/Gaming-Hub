@@ -191,13 +191,15 @@
             width: 100vw;
             height: 100vh;
             height: 100dvh;
-            background-color: #050811;
+            background-color: rgba(5, 8, 17, 0.95);
             z-index: 999999;
             display: flex;
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.2s ease-in-out;
             overflow: hidden;
+            align-items: center;
+            justify-content: center;
         }
 
         .fullscreen-overlay.active {
@@ -231,7 +233,8 @@
             cursor: pointer;
             text-decoration: none;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-        }  /* MEDIUM-SIZED CLOSE BUTTON */
+        }
+
         .close-btn {
             background: rgba(255, 0, 127, 0.85);
             border: 2px solid #ffffff;
@@ -253,14 +256,11 @@
         .close-btn:active {
             transform: scale(0.9);
         }
-
+/* MEDIUM VIEWPORT FOR MOBILE */
         .iframe-viewport {
             width: 100vw;
             height: 100vh;
             height: 100dvh;
-            position: absolute;
-            top: 0;
-            left: 0;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -276,12 +276,22 @@
             display: block;
         }
 
+        /* RESPONSIVE MEDIUM CONTAINER ON MOBILE */
         @media (max-width: 600px) {
+            .iframe-viewport {
+                width: 92vw;
+                height: 82vh;
+                height: 82dvh;
+                margin-top: 40px;
+                border-radius: 16px;
+                border: 2px solid rgba(0, 240, 255, 0.3);
+                box-shadow: 0 0 25px rgba(0, 240, 255, 0.25);
+            }
+
             .game-iframe {
                 width: 100%;
                 height: 100%;
-                transform: scale(1.25);
-                transform-origin: center center;
+                transform: none; /* Removed the high zoom scale */
             }
         }
     </style>
