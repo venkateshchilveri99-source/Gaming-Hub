@@ -14,6 +14,7 @@
             --accent-cyan: #00f0ff;
             --accent-pink: #ff007f;
             --accent-purple: #9d00ff;
+            --accent-green: #00ff66;
             --text-color: #ffffff;
             --text-sub: #a0aec0;
         }
@@ -73,10 +74,10 @@
         /* Hub Cards Grid */
         .hub-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             width: 100%;
-            max-width: 950px;
+            max-width: 1050px;
         }
 
         .game-card {
@@ -189,20 +190,34 @@
         .pink-card {
             border-color: rgba(255, 0, 127, 0.3);
         }
-
         .pink-card:hover {
             border-color: var(--accent-pink);
             box-shadow: 0 15px 35px rgba(255, 0, 127, 0.35);
         }
-
         .pink-card .badge {
             border-color: var(--accent-pink);
             color: var(--accent-pink);
         }
-
         .pink-card .play-btn {
             background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
             box-shadow: 0 4px 15px rgba(255, 0, 127, 0.4);
+        }
+
+        /* Green Accent Variant for Reflex Game */
+        .green-card {
+            border-color: rgba(0, 255, 102, 0.3);
+        }
+        .green-card:hover {
+            border-color: var(--accent-green);
+            box-shadow: 0 15px 35px rgba(0, 255, 102, 0.35);
+        }
+        .green-card .badge {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+        }
+        .green-card .play-btn {
+            background: linear-gradient(135deg, var(--accent-green), #0088ff);
+            box-shadow: 0 4px 15px rgba(0, 255, 102, 0.4);
         }
 
         /* Fullscreen Overlay with Mobile Scale Fix */
@@ -294,27 +309,107 @@
 
     <main class="hub-container">
         
-        <!-- Game 1: Number Guessing -->
-        <article class="game-card" onclick="openGame('https://venkateshchilveri99-source.github.io/Number-Guess-game/', 'Quantum Guess')">
+        <!-- Game 1: 2D Striker (Brick Breaker) -->
+        <article class="game-card" onclick="openGame('https://venkateshchilveri99-source.github.io/2D-stricker/', '2D Striker')">
             <div class="thumbnail-box">
-                <span class="badge">PUZZLE</span>
-                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop" style="object-fit: cover;" alt="Quantum Guess Code Matrix">
+                <span class="badge">ARCADE</span>
+                <!-- Custom Brick Breaker Neon SVG Graphic -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <linearGradient id="neonGlow" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#050515"/>
+                            <stop offset="100%" stop-color="#120c2e"/>
+                        </linearGradient>
+                        <filter id="glowEffect">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <rect width="400" height="250" fill="url(#neonGlow)"/>
+                    
+                    <!-- Neon Rainbow Bricks -->
+                    <g filter="url(#glowEffect)">
+                        <rect x="25" y="30" width="60" height="15" rx="3" fill="#ff0055"/>
+                        <rect x="92" y="30" width="60" height="15" rx="3" fill="#ff0055"/>
+                        <rect x="159" y="30" width="60" height="15" rx="3" fill="#ff0055"/>
+                        <rect x="226" y="30" width="60" height="15" rx="3" fill="#ff0055"/>
+                        <rect x="293" y="30" width="60" height="15" rx="3" fill="#ff0055"/>
+
+                        <rect x="25" y="50" width="60" height="15" rx="3" fill="#ff7700"/>
+                        <rect x="92" y="50" width="60" height="15" rx="3" fill="#ff7700"/>
+                        <rect x="226" y="50" width="60" height="15" rx="3" fill="#ff7700"/>
+                        <rect x="293" y="50" width="60" height="15" rx="3" fill="#ff7700"/>
+
+                        <rect x="25" y="70" width="60" height="15" rx="3" fill="#00ff66"/>
+                        <rect x="92" y="70" width="60" height="15" rx="3" fill="#00ff66"/>
+                        <rect x="293" y="70" width="60" height="15" rx="3" fill="#00ff66"/>
+
+                        <rect x="25" y="90" width="60" height="15" rx="3" fill="#00f0ff"/>
+                        <rect x="293" y="90" width="60" height="15" rx="3" fill="#00f0ff"/>
+                    </g>
+                    
+                    <!-- Aim Beam Line & Glowing Ball -->
+                    <line x1="200" y1="200" x2="190" y2="78" stroke="#00f0ff" stroke-width="2" stroke-dasharray="4" opacity="0.8"/>
+                    <circle cx="190" cy="78" r="7" fill="#ffffff" filter="url(#glowEffect)"/>
+
+                    <!-- Glowing Paddle -->
+                    <rect x="140" y="200" width="120" height="12" rx="6" fill="#aa00ff" stroke="#00f0ff" stroke-width="2" filter="url(#glowEffect)"/>
+                </svg>
             </div>
             <div class="card-body">
                 <div>
-                    <h2 class="game-title">Quantum Guess</h2>
-                    <p class="game-desc">A code-cracking number challenge. Guess secret codes with dynamic hints and track your high score.</p>
+                    <h2 class="game-title">2D Striker</h2>
+                    <p class="game-desc">Classic neon brick breaker! Bounce the energy ball to shatter colourful laser blocks and achieve top scores.</p>
                 </div>
                 <button class="play-btn">LAUNCH GAME ➔</button>
             </div>
         </article>
 
-        <!-- Game 2: Space Shooter -->
+        <!-- Game 2: Reflex (Reaction Challenge) -->
+        <article class="game-card green-card" onclick="openGame('https://venkateshchilveri99-source.github.io/Reflex/', 'Reflex')">
+            <div class="thumbnail-box">
+                <span class="badge">REACTION</span>
+                <!-- Green Glowing Circle SVG Graphic -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <radialGradient id="greenGlow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#00ff66"/>
+                            <stop offset="60%" stop-color="#00cc44"/>
+                            <stop offset="100%" stop-color="#003311" stop-opacity="0"/>
+                        </radialGradient>
+                        <filter id="superGlow">
+                            <feGaussianBlur stdDeviation="8" result="blur"/>
+                            <feMerge>
+                                <feMergeNode in="blur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <rect width="400" height="250" fill="#181534"/>
+                    
+                    <!-- Glowing Background Aura -->
+                    <circle cx="200" cy="125" r="85" fill="url(#greenGlow)" opacity="0.6"/>
+                    
+                    <!-- Solid Reaction Circle -->
+                    <circle cx="200" cy="125" r="55" fill="#00ff66" filter="url(#superGlow)"/>
+                </svg>
+            </div>
+            <div class="card-body">
+                <div>
+                    <h2 class="game-title">Reflex</h2>
+                    <p class="game-desc">Test your speed! Tap the screen the exact millisecond the target circle flashes neon green.</p>
+                </div>
+                <button class="play-btn">LAUNCH GAME ➔</button>
+            </div>
+        </article>
+
+        <!-- Game 3: Space Shooter -->
         <article class="game-card pink-card" onclick="openGame('https://venkateshchilveri99-source.github.io/space-shoot/', 'Neo Vectors')">
             <div class="thumbnail-box">
                 <span class="badge">ACTION</span>
-                
-                <!-- Centered 3D Rocket Graphic -->
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid meet">
                     <defs>
                         <linearGradient id="skyBg" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -341,47 +436,45 @@
                             <stop offset="100%" stop-color="#ff0044" stop-opacity="0"/>
                         </radialGradient>
                     </defs>
-                    
-                    <!-- Background Sky & Stars -->
                     <rect width="400" height="250" fill="url(#skyBg)"/>
                     <circle cx="50" cy="40" r="1.5" fill="#fff" opacity="0.8"/>
                     <circle cx="110" cy="180" r="2" fill="#fff" opacity="0.6"/>
                     <circle cx="340" cy="50" r="2" fill="#fff" opacity="0.9"/>
                     <circle cx="360" cy="200" r="1.5" fill="#fff" opacity="0.7"/>
 
-                    <!-- Centered Rocket Wrapper -->
                     <g transform="translate(200, 125) rotate(-35)">
-                        <!-- Thruster Flame -->
                         <path d="M -90,-10 Q -150,0 -180,0 Q -150,0 -90,10 Z" fill="url(#thrusterFire)"/>
-                        
-                        <!-- Top/Bottom Fins -->
                         <path d="M -40,-35 Q 20,-45 0,-15 Z" fill="url(#redAccent)"/>
                         <path d="M -40,35 Q 20,45 0,15 Z" fill="url(#redAccent)"/>
-                        
-                        <!-- Main Rocket Body -->
                         <path d="M -70,-20 C -20,-28 40,-25 80,0 C 40,25 -20,28 -70,20 Z" fill="url(#rocketBody)"/>
-                        
-                        <!-- Nose Cone -->
                         <path d="M 35,-15 C 55,-10 70,-5 80,0 C 70,5 55,10 35,15 Z" fill="url(#redAccent)"/>
-                        
-                        <!-- Center Fin -->
                         <path d="M -50,0 Q -10,12 10,0 Q -10,-4 -50,0 Z" fill="url(#redAccent)"/>
-                        
-                        <!-- Porthole Window -->
                         <circle cx="0" cy="0" r="14" fill="url(#redAccent)"/>
                         <circle cx="0" cy="0" r="11" fill="#ffffff"/>
                         <circle cx="0" cy="0" r="8" fill="url(#windowGlass)"/>
                     </g>
-                    
-                    <!-- Soft Foreground Clouds -->
                     <path d="M -20,260 Q 80,200 180,260 Q 280,210 420,260 Z" fill="rgba(255,255,255,0.1)"/>
                 </svg>
-
             </div>
             <div class="card-body">
                 <div>
                     <h2 class="game-title">Neo Vectors</h2>
                     <p class="game-desc">Cosmic retro-wave space shooter. Fight enemy waves, dodge obstacles, and defeat boss flagships.</p>
+                </div>
+                <button class="play-btn">LAUNCH GAME ➔</button>
+            </div>
+        </article>
+
+        <!-- Game 4: Number Guessing -->
+        <article class="game-card" onclick="openGame('https://venkateshchilveri99-source.github.io/Number-Guess-game/', 'Quantum Guess')">
+            <div class="thumbnail-box">
+                <span class="badge">PUZZLE</span>
+                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop" style="object-fit: cover;" alt="Quantum Guess Code Matrix">
+            </div>
+            <div class="card-body">
+                <div>
+                    <h2 class="game-title">Quantum Guess</h2>
+                    <p class="game-desc">A code-cracking number challenge. Guess secret codes with dynamic hints and track your high score.</p>
                 </div>
                 <button class="play-btn">LAUNCH GAME ➔</button>
             </div>
@@ -397,36 +490,4 @@
             <div style="width: 50px;"></div>
         </div>
         <div class="iframe-viewport">
-            <div class="scaled-frame-container" id="frameWrapper">
-                <iframe class="game-iframe" id="gameFrame" src="" allow="autoplay; fullscreen"></iframe>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function openGame(url, title) {
-            document.body.style.overflow = 'hidden';
-            const frame = document.getElementById('gameFrame');
-            const wrapper = document.getElementById('frameWrapper');
-            
-            frame.src = url;
-            document.getElementById('activeGameTitle').innerText = title;
-            document.getElementById('gameOverlay').classList.add('active');
-
-            if (window.innerWidth < 500 && url.includes('space-shoot')) {
-                wrapper.style.transform = 'scale(0.92)';
-                wrapper.style.transformOrigin = 'center center';
-            } else {
-                wrapper.style.transform = 'none';
-            }
-        }
-
-        function closeGame() {
-            document.body.style.overflow = '';
-            document.getElementById('gameOverlay').classList.remove('active');
-            document.getElementById('gameFrame').src = '';
-        }
-    </script>
-
-</body>
-</html>
+            <div class="scaled-frame-
