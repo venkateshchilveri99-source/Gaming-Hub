@@ -123,11 +123,6 @@
             transition: transform 0.5s ease;
         }
 
-        .game-card:hover .thumbnail-box img, 
-        .game-card:hover .thumbnail-box svg {
-            transform: scale(1.08);
-        }
-
         .badge {
             position: absolute;
             top: 12px;
@@ -188,60 +183,38 @@
         }
 
         /* Pink Card Variant */
-        .pink-card {
-            border-color: rgba(255, 0, 127, 0.3);
-        }
-        .pink-card:hover {
-            border-color: var(--accent-pink);
-            box-shadow: 0 15px 35px rgba(255, 0, 127, 0.35);
-        }
-        .pink-card .badge {
-            border-color: var(--accent-pink);
-            color: var(--accent-pink);
-        }
-        .pink-card .play-btn {
-            background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
-            box-shadow: 0 4px 15px rgba(255, 0, 127, 0.4);
-        }
+        .pink-card { border-color: rgba(255, 0, 127, 0.3); }
+        .pink-card .badge { border-color: var(--accent-pink); color: var(--accent-pink); }
+        .pink-card .play-btn { background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple)); }
 
         /* Green Card Variant */
-        .green-card {
-            border-color: rgba(0, 255, 102, 0.3);
-        }
-        .green-card:hover {
-            border-color: var(--accent-green);
-            box-shadow: 0 15px 35px rgba(0, 255, 102, 0.35);
-        }
-        .green-card .badge {
-            border-color: var(--accent-green);
-            color: var(--accent-green);
-        }
-        .green-card .play-btn {
-            background: linear-gradient(135deg, var(--accent-green), #0088ff);
-            box-shadow: 0 4px 15px rgba(0, 255, 102, 0.4);
-        }
+        .green-card { border-color: rgba(0, 255, 102, 0.3); }
+        .green-card .badge { border-color: var(--accent-green); color: var(--accent-green); }
+        .green-card .play-btn { background: linear-gradient(135deg, var(--accent-green), #0088ff); }
 
-        /* ULTRA MAX FULLSCREEN OVERLAY */
+        /* EDGE-TO-EDGE FULLSCREEN OVERLAY */
         .fullscreen-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            height: 100dvh; /* Max height on mobile browsers */
-            background-color: #000;
+            height: 100dvh;
+            background-color: #050811;
             z-index: 999999;
             display: flex;
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.2s ease-in-out;
+            overflow: hidden;
         }
 
         .fullscreen-overlay.active {
             opacity: 1;
             pointer-events: auto;
         }
-/* Floating Controls Over Top Of Game */
+
+        /* Floating Overlay Controls */
         .floating-controls {
             position: absolute;
             top: 12px;
@@ -251,36 +224,36 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000000;
-            pointer-events: none; /* Let touches pass through except on buttons */
+            pointer-events: none;
         }
 
         .floating-btn {
             pointer-events: auto;
-            background: rgba(5, 8, 17, 0.75);
+            background: rgba(5, 8, 17, 0.85);
             border: 1px solid var(--accent-cyan);
             color: var(--accent-cyan);
             font-family: 'Orbitron', sans-serif;
             font-weight: 800;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             padding: 0.5rem 1rem;
             border-radius: 30px;
             backdrop-filter: blur(8px);
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
         }
 
         .close-btn {
-            background: rgba(255, 0, 127, 0.2);
+            background: rgba(255, 0, 127, 0.3);
             border-color: var(--accent-pink);
             color: #fff;
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             padding: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             border-radius: 50%;
         }
 
@@ -291,6 +264,10 @@
             position: absolute;
             top: 0;
             left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
             background: #000;
         }
 
@@ -300,6 +277,17 @@
             border: 0;
             outline: none;
             display: block;
+        }
+
+/* MOBILE AUTO-ZOOM FIX TO MAKE GAMES BIGGER */
+        @media (max-width: 600px) {
+            .game-iframe {
+                width: 100%;
+                height: 100%;
+                /* Scales up the game content by 25% on mobile */
+                transform: scale(1.25);
+                transform-origin: center center;
+            }
         }
     </style>
 </head>
@@ -337,16 +325,13 @@
                         <rect x="159" y="30" width="60" height="15" rx="3" fill="#ff0055"/>
                         <rect x="226" y="30" width="60" height="15" rx="3" fill="#ff0055"/>
                         <rect x="293" y="30" width="60" height="15" rx="3" fill="#ff0055"/>
-
                         <rect x="25" y="50" width="60" height="15" rx="3" fill="#ff7700"/>
                         <rect x="92" y="50" width="60" height="15" rx="3" fill="#ff7700"/>
                         <rect x="226" y="50" width="60" height="15" rx="3" fill="#ff7700"/>
                         <rect x="293" y="50" width="60" height="15" rx="3" fill="#ff7700"/>
-
                         <rect x="25" y="70" width="60" height="15" rx="3" fill="#00ff66"/>
                         <rect x="92" y="70" width="60" height="15" rx="3" fill="#00ff66"/>
                         <rect x="293" y="70" width="60" height="15" rx="3" fill="#00ff66"/>
-
                         <rect x="25" y="90" width="60" height="15" rx="3" fill="#00f0ff"/>
                         <rect x="293" y="90" width="60" height="15" rx="3" fill="#00f0ff"/>
                     </g>
@@ -473,7 +458,7 @@
 
     </main>
 
-    <!-- Edge-to-Edge Game Overlay -->
+    <!-- Overlay -->
     <div class="fullscreen-overlay" id="gameOverlay">
         <div class="floating-controls">
             <button class="floating-btn close-btn" onclick="closeGame()">✕</button>
