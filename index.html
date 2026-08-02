@@ -287,6 +287,46 @@
             letter-spacing: 1px;
         }
 
+        /* ABOUT ME PROFILE SECTION */
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        @media (min-width: 600px) {
+            .profile-container {
+                flex-direction: row;
+                text-align: left;
+                align-items: flex-start;
+            }
+        }
+
+        .profile-img-box {
+            width: 150px;
+            height: 150px;
+            min-width: 150px;
+            border-radius: 50%;
+            padding: 4px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-pink));
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+            overflow: hidden;
+        }
+
+        .profile-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
         /* TABLES */
         .leader-table {
             width: 100%;
@@ -746,19 +786,27 @@
             </div>
         </section>
 
-        <!-- ABOUT ME -->
+        <!-- ABOUT ME SECTION WITH PHOTO -->
         <section class="page-section" id="page-about-me">
             <div class="content-card">
                 <h2>👨‍💻 ABOUT ME</h2>
-                <p style="font-size: 1.1rem; line-height: 1.6; color: #fff; margin-bottom: 1rem;">
-                    Welcome to <strong>Venky's Arcade</strong>!
-                </p>
-                <p style="font-size: 1.05rem; line-height: 1.6; color: var(--text-sub); margin-bottom: 1.5rem;">
-                    Created by <strong>Venkatesh Chilveri</strong> to showcase high-performance HTML5 browser games in a dark-mode, neon arcade interface.
-                </p>
-                <div style="background: rgba(0, 240, 255, 0.1); border-left: 4px solid var(--accent-cyan); padding: 1rem; border-radius: 4px;">
-                    <span style="color: var(--accent-cyan); font-weight: 700;">Developer:</span> Venkatesh Chilveri<br>
-                    <span style="color: var(--accent-cyan); font-weight: 700;">Platform:</span> GitHub Pages / HTML5
+                <div class="profile-container">
+                    <div class="profile-img-box">
+                        <!-- Save your portrait photo as profile.jpg in the same directory as this index.html file -->
+                        <img src="profile.jpg" alt="Venkatesh Chilveri">
+                    </div>
+                    <div class="profile-info">
+                        <p style="font-size: 1.1rem; line-height: 1.6; color: #fff; margin-bottom: 1rem;">
+                            Welcome to <strong>Venky's Arcade</strong>!
+                        </p>
+                        <p style="font-size: 1.05rem; line-height: 1.6; color: var(--text-sub); margin-bottom: 1.5rem;">
+                            Created by <strong>Venkatesh Chilveri</strong> to showcase high-performance HTML5 browser games in a dark-mode, neon arcade interface.
+                        </p>
+                        <div style="background: rgba(0, 240, 255, 0.1); border-left: 4px solid var(--accent-cyan); padding: 1rem; border-radius: 4px;">
+                            <span style="color: var(--accent-cyan); font-weight: 700;">Developer:</span> Venkatesh Chilveri<br>
+                            <span style="color: var(--accent-cyan); font-weight: 700;">Platform:</span> GitHub Pages / HTML5
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
