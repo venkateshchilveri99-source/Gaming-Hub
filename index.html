@@ -9,15 +9,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #050811;
-            --card-bg: rgba(18, 24, 43, 0.85);
-            --accent-cyan: #00f0ff;
-            --accent-pink: #ff007f;
-            --accent-purple: #9d00ff;
-            --accent-green: #00ff66;
-            --accent-gold: #ffcc00;
-            --text-color: #ffffff;
-            --text-sub: #a0aec0;
+            /* SKY BLUE THEME COLOR PALETTE */
+            --bg-color: #EFF6FF;
+            --card-bg: #FFFFFF;
+            --primary-blue: #2563EB;
+            --primary-hover: #1D4ED8;
+            --accent-cyan: #06B6D4;
+            --text-color: #111827;
+            --text-sub: #4B5563;
+            --border-color: rgba(37, 99, 235, 0.2);
+            --accent-gold: #D97706;
         }
 
         * {
@@ -33,8 +34,8 @@
             min-height: 100vh;
             background-color: var(--bg-color);
             background-image: 
-                radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.18), transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 0, 127, 0.12), transparent 50%);
+                radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.15), transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(37, 99, 235, 0.12), transparent 50%);
             color: var(--text-color);
             font-family: 'Rajdhani', sans-serif;
             overflow-x: hidden;
@@ -50,9 +51,9 @@
         /* NAVIGATION BAR */
         nav {
             width: 100%;
-            background: rgba(5, 8, 17, 0.9);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+            border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -60,14 +61,14 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 1.5rem;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.05);
         }
 
         .nav-logo {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.3rem;
             font-weight: 900;
-            color: var(--accent-cyan);
-            text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+            color: var(--primary-blue);
             letter-spacing: 2px;
             cursor: pointer;
         }
@@ -92,14 +93,13 @@
         }
 
         .nav-link:hover, .nav-link.active {
-            color: #fff;
-            background: rgba(0, 240, 255, 0.15);
-            border: 1px solid var(--accent-cyan);
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+            color: var(--primary-blue);
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid var(--border-color);
         }
 
         .login-btn-nav {
-            background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
             color: #fff;
             border: none;
             padding: 0.5rem 1.2rem;
@@ -108,7 +108,13 @@
             font-size: 0.8rem;
             font-weight: 800;
             cursor: pointer;
-            box-shadow: 0 0 12px rgba(255, 0, 127, 0.4);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+            transition: all 0.2s ease;
+        }
+
+        .login-btn-nav:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
         }
 
         header {
@@ -124,10 +130,9 @@
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 4px;
-            background: linear-gradient(135deg, #ffffff 10%, var(--accent-cyan) 60%, var(--accent-pink) 100%);
+            background: linear-gradient(135deg, var(--text-color) 20%, var(--primary-blue) 60%, var(--accent-cyan) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 25px rgba(0, 240, 255, 0.5);
             margin-bottom: 0.5rem;
         }
 
@@ -135,6 +140,7 @@
             color: var(--text-sub);
             font-size: 1.1rem;
             letter-spacing: 1px;
+            font-weight: 700;
         }
 
         /* MAIN CONTAINER & SECTIONS */
@@ -168,7 +174,7 @@
 
         .game-card {
             background: var(--card-bg);
-            border: 1px solid rgba(0, 240, 255, 0.25);
+            border: 1px solid var(--border-color);
             border-radius: 20px;
             overflow: hidden;
             backdrop-filter: blur(12px);
@@ -176,14 +182,14 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.08);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         .game-card:hover {
             transform: translateY(-8px) scale(1.02);
-            border-color: var(--accent-cyan);
-            box-shadow: 0 15px 35px rgba(0, 240, 255, 0.35);
+            border-color: var(--primary-blue);
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.18);
         }
 
         .thumbnail-box {
@@ -191,7 +197,7 @@
             width: 100%;
             height: 190px;
             overflow: hidden;
-            background: #000;
+            background: #e2e8f0;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -206,9 +212,9 @@
             position: absolute;
             top: 12px;
             right: 12px;
-            background: rgba(5, 8, 17, 0.85);
-            border: 1px solid var(--accent-cyan);
-            color: var(--accent-cyan);
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--primary-blue);
+            color: var(--primary-blue);
             font-family: 'Orbitron', sans-serif;
             font-size: 0.75rem;
             font-weight: 800;
@@ -230,7 +236,7 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 1.5rem;
             font-weight: 800;
-            color: #fff;
+            color: var(--text-color);
             margin-bottom: 0.6rem;
             letter-spacing: 1px;
         }
@@ -240,12 +246,13 @@
             font-size: 1rem;
             line-height: 1.4;
             margin-bottom: 1.5rem;
+            font-weight: 500;
         }
 
         .play-btn {
             width: 100%;
             padding: 0.9rem;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
             border: none;
             border-radius: 10px;
             color: #fff;
@@ -258,31 +265,28 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.25);
+            transition: all 0.2s ease;
         }
 
-        .pink-card { border-color: rgba(255, 0, 127, 0.3); }
-        .pink-card .badge { border-color: var(--accent-pink); color: var(--accent-pink); }
-        .pink-card .play-btn { background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple)); }
-
-        .green-card { border-color: rgba(0, 255, 102, 0.3); }
-        .green-card .badge { border-color: var(--accent-green); color: var(--accent-green); }
-        .green-card .play-btn { background: linear-gradient(135deg, var(--accent-green), #0088ff); }
+        .play-btn:hover {
+            background: linear-gradient(135deg, var(--primary-hover), var(--accent-cyan));
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+        }
 
         /* CONTENT CARDS */
         .content-card {
             background: var(--card-bg);
-            border: 1px solid rgba(0, 240, 255, 0.2);
+            border: 1px solid var(--border-color);
             border-radius: 20px;
             padding: 2rem;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.08);
         }
 
         .content-card h2 {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.8rem;
-            color: var(--accent-cyan);
+            color: var(--primary-blue);
             margin-bottom: 1rem;
             letter-spacing: 1px;
         }
@@ -310,8 +314,8 @@
             min-width: 150px;
             border-radius: 50%;
             padding: 4px;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-pink));
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.25);
             overflow: hidden;
         }
 
@@ -339,12 +343,12 @@
         .leader-table th, .leader-table td {
             padding: 12px 15px;
             text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .leader-table th {
             font-family: 'Orbitron', sans-serif;
-            color: var(--accent-pink);
+            color: var(--primary-blue);
             font-size: 0.9rem;
             text-transform: uppercase;
         }
@@ -357,9 +361,9 @@
             text-align: center;
         }
 
-        .rank-1 { background: var(--accent-gold); color: #000; }
-        .rank-2 { background: #c0c0c0; color: #000; }
-        .rank-3 { background: #cd7f32; color: #000; }
+        .rank-1 { background: var(--accent-gold); color: #fff; }
+        .rank-2 { background: #94a3b8; color: #fff; }
+        .rank-3 { background: #b45309; color: #fff; }
 
         /* ABOUT GAMES GRID */
         .game-about-grid {
@@ -370,15 +374,15 @@
         }
 
         .game-about-box {
-            background: rgba(5, 8, 17, 0.6);
-            border: 1px solid rgba(0, 240, 255, 0.2);
+            background: rgba(239, 246, 255, 0.6);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 1.2rem;
         }
 
         .game-about-box h3 {
             font-family: 'Orbitron', sans-serif;
-            color: var(--accent-green);
+            color: var(--primary-blue);
             margin-bottom: 0.5rem;
             font-size: 1.2rem;
         }
@@ -387,6 +391,7 @@
             color: var(--text-sub);
             font-size: 0.95rem;
             line-height: 1.4;
+            font-weight: 600;
         }
 
         /* EDGE-TO-EDGE FULLSCREEN OVERLAY */
@@ -425,9 +430,9 @@
 
         .floating-btn {
             pointer-events: auto;
-            background: rgba(5, 8, 17, 0.85);
-            border: 1px solid var(--accent-cyan);
-            color: var(--accent-cyan);
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--primary-blue);
+            color: var(--primary-blue);
             font-family: 'Orbitron', sans-serif;
             font-weight: 800;
             font-size: 0.85rem;
@@ -436,11 +441,11 @@
             backdrop-filter: blur(8px);
             cursor: pointer;
             text-decoration: none;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .close-btn {
-            background: rgba(255, 0, 127, 0.85);
+            background: var(--primary-blue);
             border: 2px solid #ffffff;
             color: #fff;
             width: 48px;
@@ -452,7 +457,7 @@
             font-size: 1.5rem;
             font-weight: 900;
             border-radius: 50%;
-            box-shadow: 0 0 15px rgba(255, 0, 127, 0.6);
+            box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
             cursor: pointer;
         }
 
@@ -485,7 +490,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(5, 8, 17, 0.85);
+            background: rgba(17, 24, 39, 0.6);
             backdrop-filter: blur(8px);
             z-index: 20000;
             display: flex;
@@ -503,18 +508,18 @@
 
         .login-card {
             background: var(--card-bg);
-            border: 1px solid var(--accent-cyan);
+            border: 1px solid var(--primary-blue);
             border-radius: 20px;
             padding: 2.5rem;
             width: 90%;
             max-width: 400px;
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
             position: relative;
         }
 
         .login-card h2 {
             font-family: 'Orbitron', sans-serif;
-            color: #fff;
+            color: var(--text-color);
             margin-bottom: 1.5rem;
             text-align: center;
         }
@@ -529,29 +534,31 @@
             font-size: 0.9rem;
             margin-bottom: 0.4rem;
             font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
         }
 
         .input-group input {
             width: 100%;
             padding: 0.8rem 1rem;
-            background: rgba(5, 8, 17, 0.8);
-            border: 1px solid rgba(0, 240, 255, 0.3);
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
             border-radius: 8px;
-            color: #fff;
+            color: var(--text-color);
             outline: none;
             font-family: 'Rajdhani', sans-serif;
             font-size: 1.1rem;
+            font-weight: 600;
         }
 
         .input-group input:focus {
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 10px rgba(37, 99, 235, 0.2);
         }
 
         .submit-btn {
             width: 100%;
             padding: 0.9rem;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
             border: none;
             border-radius: 10px;
             color: #fff;
@@ -559,7 +566,7 @@
             font-weight: 800;
             cursor: pointer;
             margin-top: 0.5rem;
-            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
         }
 
         .modal-close {
@@ -580,12 +587,13 @@
             font-size: 1rem;
             letter-spacing: 1px;
             padding: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid var(--border-color);
             width: 100%;
+            font-weight: 600;
         }
 
         footer strong {
-            color: var(--accent-cyan);
+            color: var(--primary-blue);
             font-family: 'Orbitron', sans-serif;
         }
 
@@ -637,260 +645,16 @@
                     <div class="thumbnail-box">
                         <span class="badge">ARCADE</span>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
-                            <defs>
-                                <linearGradient id="neonGlow" x1="0" y1="0" x2="1" y2="1">
-                                    <stop offset="0%" stop-color="#050515"/>
-                                    <stop offset="100%" stop-color="#120c2e"/>
-                                </linearGradient>
-                            </defs>
-                            <rect width="400" height="250" fill="url(#neonGlow)"/>
-                            <rect x="25" y="30" width="60" height="15" rx="3" fill="#ff0055"/>
-                            <rect x="92" y="30" width="60" height="15" rx="3" fill="#ff0055"/>
-                            <rect x="159" y="30" width="60" height="15" rx="3" fill="#ff0055"/>
-                            <rect x="226" y="30" width="60" height="15" rx="3" fill="#ff0055"/>
-                            <rect x="293" y="30" width="60" height="15" rx="3" fill="#ff0055"/>
-                            <circle cx="190" cy="78" r="7" fill="#ffffff"/>
-                            <rect x="140" y="200" width="120" height="12" rx="6" fill="#aa00ff" stroke="#00f0ff" stroke-width="2"/>
+                            <rect width="400" height="250" fill="#eff6ff"/>
+                            <rect x="25" y="30" width="60" height="15" rx="3" fill="#2563eb"/>
+                            <rect x="92" y="30" width="60" height="15" rx="3" fill="#2563eb"/>
+                            <rect x="159" y="30" width="60" height="15" rx="3" fill="#2563eb"/>
+                            <rect x="226" y="30" width="60" height="15" rx="3" fill="#2563eb"/>
+                            <rect x="293" y="30" width="60" height="15" rx="3" fill="#2563eb"/>
+                            <circle cx="190" cy="78" r="7" fill="#06b6d4"/>
+                            <rect x="140" y="200" width="120" height="12" rx="6" fill="#1d4ed8"/>
                         </svg>
                     </div>
                     <div class="card-body">
                         <div>
-                            <h2 class="game-title">2D Striker</h2>
-                            <p class="game-desc">Classic neon brick breaker! Bounce the energy ball to shatter colourful laser blocks and achieve top scores.</p>
-                        </div>
-                        <button class="play-btn">LAUNCH GAME ➔</button>
-                    </div>
-                </article>
-
-                <!-- Game 2 -->
-                <article class="game-card green-card" onclick="openGame('https://venkateshchilveri99-source.github.io/Reflex/')">
-                    <div class="thumbnail-box">
-                        <span class="badge">REACTION</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
-                            <rect width="400" height="250" fill="#181534"/>
-                            <circle cx="200" cy="125" r="55" fill="#00ff66"/>
-                        </svg>
-                    </div>
-                    <div class="card-body">
-                        <div>
-                            <h2 class="game-title">Reflex</h2>
-                            <p class="game-desc">Test your speed! Tap the screen the exact millisecond the target circle flashes neon green.</p>
-                        </div>
-                        <button class="play-btn">LAUNCH GAME ➔</button>
-                    </div>
-                </article>
-
-                <!-- Game 3 -->
-                <article class="game-card pink-card" onclick="openGame('https://venkateshchilveri99-source.github.io/space-shoot/')">
-                    <div class="thumbnail-box">
-                        <span class="badge">ACTION</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
-                            <rect width="400" height="250" fill="#2a75ff"/>
-                            <g transform="translate(200, 115) rotate(-35)">
-                                <circle cx="10" cy="0" r="18" fill="#ff4d4d"/>
-                                <circle cx="10" cy="0" r="11" fill="#00f0ff"/>
-                            </g>
-                        </svg>
-                    </div>
-                    <div class="card-body">
-                        <div>
-                            <h2 class="game-title">Space Shooting 🚀</h2>
-                            <p class="game-desc">Blast off into deep space! Pilot your rocket, dodge incoming hazards, and shoot down alien fleets.</p>
-                        </div>
-                        <button class="play-btn">LAUNCH GAME ➔</button>
-                    </div>
-                </article>
-
-                <!-- Game 4 -->
-                <article class="game-card" onclick="openGame('https://venkateshchilveri99-source.github.io/Number-Guess-game/')">
-                    <div class="thumbnail-box">
-                        <span class="badge">PUZZLE</span>
-                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop" style="object-fit: cover;" alt="Matrix Code">
-                    </div>
-                    <div class="card-body">
-                        <div>
-                            <h2 class="game-title">Quantum Guess</h2>
-                            <p class="game-desc">A code-cracking number challenge. Guess secret codes with dynamic hints and track your high score.</p>
-                        </div>
-                        <button class="play-btn">LAUNCH GAME ➔</button>
-                    </div>
-                </article>
-
-            </div>
-        </section>
-
-        <!-- HIGH SCORES & TOP PLAYERS -->
-        <section class="page-section" id="page-scores">
-            <div class="content-card">
-                <h2>🏆 TOP PLAYERS & HIGH SCORES</h2>
-                <table class="leader-table">
-                    <thead>
-                        <tr>
-                            <th>Rank</th>
-                            <th>Player</th>
-                            <th>Game</th>
-                            <th>High Score</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><span class="rank-badge rank-1">1</span></td>
-                            <td><strong>Venky_Pro</strong></td>
-                            <td>Space Shooting 🚀</td>
-                            <td>24,500 pts</td>
-                        </tr>
-                        <tr>
-                            <td><span class="rank-badge rank-2">2</span></td>
-                            <td><strong>Kartik</strong></td>
-                            <td>2D Striker</td>
-                            <td>18,200 pts</td>
-                        </tr>
-                        <tr>
-                            <td><span class="rank-badge rank-3">3</span></td>
-                            <td><strong>Prathamesh</strong></td>
-                            <td>Reflex</td>
-                            <td>142 ms</td>
-                        </tr>
-                        <tr>
-                            <td><span class="rank-badge">4</span></td>
-                            <td><strong>Nikhil</strong></td>
-                            <td>Quantum Guess</td>
-                            <td>100% Accuracy</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- ABOUT GAMES -->
-        <section class="page-section" id="page-about-games">
-            <div class="content-card">
-                <h2>🎮 ABOUT THE GAMES</h2>
-                <div class="game-about-grid">
-                    <div class="game-about-box">
-                        <h3>2D Striker</h3>
-                        <p>Classic arcade brick-breaker built using HTML5 Canvas with smooth touch controls.</p>
-                    </div>
-                    <div class="game-about-box">
-                        <h3>Reflex</h3>
-                        <p>A fast-paced reaction testing game to measure your visual tap reaction speed in milliseconds.</p>
-                    </div>
-                    <div class="game-about-box">
-                        <h3>Space Shooting 🚀</h3>
-                        <p>Retro top-down space shooter with hazards, enemy targets, and action gameplay.</p>
-                    </div>
-                    <div class="game-about-box">
-                        <h3>Quantum Guess</h3>
-                        <p>Numeric logic puzzle designed to challenge deduction and strategy.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ABOUT ME SECTION WITH PHOTO -->
-        <section class="page-section" id="page-about-me">
-            <div class="content-card">
-                <h2>ABOUT ME</h2>
-                <div class="profile-container">
-                    <div class="profile-img-box">
-                        <!-- Save your portrait photo as profile.jpg in the same directory as this index.html file -->
-                        <img src="profile.jpg" alt="Venkatesh Chilveri">
-                    </div>
-                    <div class="profile-info">
-                        <p style="font-size: 1.1rem; line-height: 1.6; color: #fff; margin-bottom: 1rem;">
-                            Welcome to <strong>Venky's Arcade</strong>!
-                        </p>
-                        <p style="font-size: 1.05rem; line-height: 1.6; color: var(--text-sub); margin-bottom: 1.5rem;">
-                            Created by <strong>Venkatesh Chilveri</strong> to showcase high-performance HTML5 browser games in a dark-mode, neon arcade interface.
-                        </p>
-                        <div style="background: rgba(0, 240, 255, 0.1); border-left: 4px solid var(--accent-cyan); padding: 1rem; border-radius: 4px;">
-                            <span style="color: var(--accent-cyan); font-weight: 700;">Developer:</span> Venkatesh Chilveri<br>
-                            <span style="color: var(--accent-cyan); font-weight: 700;">Platform:</span> GitHub Pages / HTML5
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- LOGIN MODAL -->
-    <div class="modal-backdrop" id="loginModal">
-        <div class="login-card">
-            <button class="modal-close" onclick="closeLogin()">✕</button>
-            <h2>PLAYER LOGIN</h2>
-            <form onsubmit="handleLogin(event)">
-                <div class="input-group">
-                    <label for="username">GAMERTAG</label>
-                    <input type="text" id="username" placeholder="Enter username" required>
-                </div>
-                <div class="input-group">
-                    <label for="password">PASSWORD</label>
-                    <input type="password" id="password" placeholder="••••••••" required>
-                </div>
-                <button type="submit" class="submit-btn">LOG IN ➔</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- FULLSCREEN GAME OVERLAY -->
-    <div class="fullscreen-overlay" id="gameOverlay">
-        <div class="floating-controls">
-            <button class="floating-btn close-btn" onclick="closeGame()">✕</button>
-            <a id="directLink" class="floating-btn" href="#" target="_blank">DIRECT ↗</a>
-        </div>
-        <div class="iframe-viewport">
-            <iframe class="game-iframe" id="gameFrame" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-modals"></iframe>
-        </div>
-    </div>
-
-    <!-- FOOTER -->
-    <footer>
-        <p>Created by <strong>Venkatesh Chilveri</strong> | Venky's Arcade © 2026</p>
-    </footer>
-
-    <script>
-        function showPage(pageId) {
-            document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
-            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-
-            document.getElementById('page-' + pageId).classList.add('active');
-            document.getElementById('btn-' + pageId).classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function openGame(url) {
-            document.body.style.overflow = 'hidden';
-            const frame = document.getElementById('gameFrame');
-            frame.src = 'about:blank';
-            setTimeout(() => { frame.src = url; }, 50);
-            document.getElementById('directLink').href = url;
-            document.getElementById('gameOverlay').classList.add('active');
-        }
-
-        function closeGame() {
-            document.body.style.overflow = '';
-            document.getElementById('gameOverlay').classList.remove('active');
-            document.getElementById('gameFrame').src = '';
-        }
-
-        function openLogin() {
-            document.getElementById('loginModal').classList.add('active');
-        }
-
-        function closeLogin() {
-            document.getElementById('loginModal').classList.remove('active');
-        }
-
-        function handleLogin(e) {
-            e.preventDefault();
-            const username = document.getElementById('username').value;
-            if (username) {
-                document.getElementById('user-login-btn').innerText = username.toUpperCase();
-                closeLogin();
-            }
-        }
-    </script>
-
-</body>
-</html>
+                            <h2 class
