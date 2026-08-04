@@ -681,26 +681,59 @@
                     </div>
                 </article>
 
-                <!-- Game 3 -->
-                <article class="game-card pink-card" onclick="openGame('https://venkateshchilveri99-source.github.io/space-shoot/')">
-                    <div class="thumbnail-box">
-                        <span class="badge">ACTION</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
-                            <rect width="400" height="250" fill="#2a75ff"/>
-                            <g transform="translate(200, 115) rotate(-35)">
-                                <circle cx="10" cy="0" r="18" fill="#ff4d4d"/>
-                                <circle cx="10" cy="0" r="11" fill="#00f0ff"/>
-                            </g>
-                        </svg>
-                    </div>
-                    <div class="card-body">
-                        <div>
-                            <h2 class="game-title">Space Shooting 🚀</h2>
-                            <p class="game-desc">Blast off into deep space! Pilot your rocket, dodge incoming hazards, and shoot down alien fleets.</p>
-                        </div>
-                        <button class="play-btn">LAUNCH GAME ➔</button>
-                    </div>
-                </article>
+               
+                      <!-- Game 3: Space Shooting 🚀 -->
+        <article class="game-card pink-card" onclick="openGame('https://venkateshchilveri99-source.github.io/space-shoot/')">
+            <div class="thumbnail-box">
+                <span class="badge">ACTION</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <linearGradient id="skyBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#2a75ff"/>
+                            <stop offset="50%" stop-color="#6033e0"/>
+                            <stop offset="100%" stop-color="#8a18c0"/>
+                        </linearGradient>
+                        <linearGradient id="rocketBody" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffffff"/>
+                            <stop offset="100%" stop-color="#e2e8f0"/>
+                        </linearGradient>
+                        <linearGradient id="redNose" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ff4d4d"/>
+                            <stop offset="100%" stop-color="#cc0033"/>
+                        </linearGradient>
+                        <linearGradient id="fireGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffea00"/>
+                            <stop offset="50%" stop-color="#ff7700"/>
+                            <stop offset="100%" stop-color="#ff0055" stop-opacity="0"/>
+                        </linearGradient>
+                    </defs>
+
+                    <rect width="400" height="250" fill="url(#skyBg)"/>
+
+                    <path d="M -20,220 Q 30,170 90,200 Q 150,160 210,210 Q 270,170 330,220 Z" fill="#ffffff" opacity="0.3"/>
+                    <path d="M 220,250 Q 280,200 340,230 Q 380,190 420,250 Z" fill="#ffffff" opacity="0.5"/>
+
+                    <g transform="translate(200, 115) rotate(-35)">
+                        <path d="M -80,0 Q -140,-25 -170,0 Q -140,25 -80,0 Z" fill="url(#fireGrad)"/>
+                        <path d="M -50,-25 Q -80,-60 -10,-45 Z" fill="url(#redNose)"/>
+                        <path d="M -50,25 Q -80,60 -10,45 Z" fill="url(#redNose)"/>
+                        <path d="M -70,-35 C -20,-45 40,-40 90,0 C 40,40 -20,45 -70,35 Z" fill="url(#rocketBody)"/>
+                        <path d="M 35,-22 C 55,-15 75,-8 90,0 C 75,8 55,15 35,22 Z" fill="url(#redNose)"/>
+                        <circle cx="10" cy="0" r="18" fill="#ff4d4d"/>
+                        <circle cx="10" cy="0" r="14" fill="#1e293b"/>
+                        <circle cx="10" cy="0" r="11" fill="#00f0ff"/>
+                        <circle cx="14" cy="-4" r="3" fill="#ffffff" opacity="0.8"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="card-body">
+                <div>
+                    <h2 class="game-title">Space Shooting 🚀</h2>
+                    <p class="game-desc">Blast off into deep space! Pilot your rocket, dodge incoming hazards, and shoot down alien fleets.</p>
+                </div>
+                <button class="play-btn">LAUNCH GAME ➔</button>
+            </div>
+        </article>
 
                 <!-- Game 4 -->
                 <article class="game-card" onclick="openGame('https://venkateshchilveri99-source.github.io/Number-Guess-game/')">
