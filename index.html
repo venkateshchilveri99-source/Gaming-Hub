@@ -9,16 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-gradient: linear-gradient(135deg, #2b95ff 0%, #0066ff 50%, #1e82ff 100%);
-            --glass-bg: rgba(255, 255, 255, 0.45);
-            --glass-border: rgba(255, 255, 255, 0.6);
-            --card-glass: rgba(255, 255, 255, 0.7);
-            --primary-blue: #0066ff;
-            --accent-cyan: #22d3ee;
-            --text-dark: #1e293b;
-            --text-sub: #475569;
-            --bar-bg: #cbd5e1;
-            --bar-fill: #3b82f6;
+            --bg-color: #050811;
+            --card-bg: rgba(18, 24, 43, 0.85);
+            --accent-cyan: #00f0ff;
+            --accent-pink: #ff007f;
+            --accent-purple: #9d00ff;
+            --accent-green: #00ff66;
+            --text-color: #ffffff;
+            --text-sub: #a0aec0;
         }
 
         * {
@@ -32,108 +30,25 @@
         html, body {
             width: 100%;
             min-height: 100vh;
-            background: var(--bg-gradient);
-            color: var(--text-dark);
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.18), transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 0, 127, 0.12), transparent 50%);
+            color: var(--text-color);
             font-family: 'Rajdhani', sans-serif;
             overflow-x: hidden;
-            position: relative;
         }
-
-        /* BACKGROUND DECORATIVE CIRCLES */
-        .bg-circle {
-            position: fixed;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(10px);
-            z-index: 0;
-            pointer-events: none;
-        }
-        .circle-1 { width: 350px; height: 350px; top: -80px; right: -50px; }
-        .circle-2 { width: 280px; height: 280px; bottom: 50px; left: -80px; }
-        .circle-3 { width: 180px; height: 180px; top: 40%; right: 10%; }
 
         body {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-bottom: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* NAVIGATION BAR */
-        nav {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.35);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--glass-border);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 1.5rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .nav-logo {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 900;
-            color: #0f172a;
-            letter-spacing: 2px;
-            cursor: pointer;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 0.8rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-link {
-            color: var(--text-sub);
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            padding: 0.4rem 0.8rem;
-            border-radius: 8px;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: var(--primary-blue);
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid var(--glass-border);
-        }
-
-        .login-btn-nav {
-            background: linear-gradient(135deg, #2563eb, #3b82f6);
-            color: #fff;
-            border: none;
-            padding: 0.5rem 1.2rem;
-            border-radius: 20px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 800;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-            transition: all 0.2s ease;
-        }
-
-        .login-btn-nav:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+            padding: 2rem 1rem;
         }
 
         header {
             text-align: center;
-            margin: 2rem 0 1.5rem 0;
-            padding: 0 1rem;
+            margin-bottom: 2.5rem;
             width: 100%;
         }
 
@@ -143,279 +58,132 @@
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 4px;
-            color: #ffffff;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(135deg, #ffffff 10%, var(--accent-cyan) 60%, var(--accent-pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 25px rgba(0, 240, 255, 0.5);
             margin-bottom: 0.5rem;
         }
 
         header p {
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--text-sub);
             font-size: 1.1rem;
             letter-spacing: 1px;
-            font-weight: 700;
         }
 
-        /* MAIN CONTAINER & SECTIONS */
-        .main-container {
+        .hub-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
             width: 100%;
             max-width: 1050px;
-            padding: 0 1rem;
         }
 
-        .page-section {
-            display: none;
-            animation: fadeIn 0.3s ease-in-out forwards;
-        }
-
-        .page-section.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* GLASS CARD CONTAINER (FROM IMAGE) */
-        .glass-dashboard {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 28px;
-            padding: 2rem;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-            display: grid;
-            grid-template-columns: 240px 1fr;
-            gap: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .glass-dashboard {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* SIDEBAR (IMAGE STYLE) */
-        .dashboard-sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            border-right: 1px solid rgba(255, 255, 255, 0.4);
-            padding-right: 1.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .dashboard-sidebar {
-                border-right: none;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-                padding-right: 0;
-                padding-bottom: 1.5rem;
-            }
-        }
-
-        .profile-small {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .profile-small img {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #fff;
-        }
-
-        .profile-small span {
-            font-weight: 800;
-            font-size: 1.1rem;
-            color: #0f172a;
-        }
-
-        .sidebar-menu {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .sidebar-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: #334155;
-            padding: 8px 12px;
-            border-radius: 12px;
+        .game-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 240, 255, 0.25);
+            border-radius: 20px;
+            overflow: hidden;
+            backdrop-filter: blur(12px);
             cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .sidebar-item:hover, .sidebar-item.active {
-            background: rgba(255, 255, 255, 0.6);
-            color: var(--primary-blue);
-        }
-
-        .pro-banner {
-            margin-top: auto;
-            background: rgba(255, 255, 255, 0.5);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 1rem;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: space-between;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        .pro-banner p {
-            font-size: 0.8rem;
-            font-weight: 700;
-            line-height: 1.2;
-            color: #1e293b;
+        .game-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 15px 35px rgba(0, 240, 255, 0.35);
         }
 
-        /* ACTIVE GAMES AREA */
-        .dashboard-main h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.4rem;
-            color: #0f172a;
-            margin-bottom: 1rem;
-        }
-
-        .games-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-
-        .game-row-card {
-            background: var(--card-glass);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            border-radius: 20px;
-            padding: 1rem 1.2rem;
+        .thumbnail-box {
+            position: relative;
+            width: 100%;
+            height: 190px;
+            overflow: hidden;
+            background: #000;
             display: flex;
             align-items: center;
-            gap: 1.2rem;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
-            cursor: pointer;
-            transition: all 0.25 ease;
+            justify-content: center;
         }
 
-        .game-row-card:hover {
-            transform: translateY(-3px);
-            background: rgba(255, 255, 255, 0.85);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
-        }
-
-        .game-icon-box {
-            width: 60px;
-            height: 60px;
-            border-radius: 14px;
-            overflow: hidden;
-            flex-shrink: 0;
-            background: #cbd5e1;
-        }
-
-        .game-icon-box img, .game-icon-box svg {
+        .thumbnail-box img, .thumbnail-box svg {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        .game-info {
-            flex: 1;
-        }
-
-        .game-info h3 {
+        .badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(5, 8, 17, 0.85);
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
-            color: #0f172a;
-            margin-bottom: 2px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            z-index: 2;
         }
 
-        .game-info span {
-            font-size: 0.85rem;
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+
+        .game-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.6rem;
+            letter-spacing: 1px;
+        }
+
+        .game-desc {
             color: var(--text-sub);
-            font-weight: 600;
+            font-size: 1rem;
+            line-height: 1.4;
+            margin-bottom: 1.5rem;
         }
 
-        .progress-container {
+        .play-btn {
             width: 100%;
-            background: var(--bar-bg);
-            height: 12px;
-            border-radius: 6px;
-            margin-top: 8px;
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: var(--bar-fill);
-            border-radius: 6px;
-        }
-
-        .percentage {
+            padding: 0.9rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            border: none;
+            border-radius: 10px;
+            color: #fff;
             font-family: 'Orbitron', sans-serif;
             font-weight: 800;
-            color: var(--primary-blue);
             font-size: 0.95rem;
-            margin-left: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.4);
         }
 
-        /* CONTENT CARDS FOR OTHER PAGES */
-        .content-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
+        .pink-card { border-color: rgba(255, 0, 127, 0.3); }
+        .pink-card .badge { border-color: var(--accent-pink); color: var(--accent-pink); }
+        .pink-card .play-btn { background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple)); }
 
-        .content-card h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            color: #0f172a;
-            margin-bottom: 1rem;
-        }
+        .green-card { border-color: rgba(0, 255, 102, 0.3); }
+        .green-card .badge { border-color: var(--accent-green); color: var(--accent-green); }
+        .green-card .play-btn { background: linear-gradient(135deg, var(--accent-green), #0088ff); }
 
-        /* TABLES */
-        .leader-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .leader-table th, .leader-table td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-        }
-
-        .leader-table th {
-            font-family: 'Orbitron', sans-serif;
-            color: #0f172a;
-            font-size: 0.9rem;
-        }
-
-        .rank-badge {
-            font-weight: 900;
-            padding: 4px 10px;
-            border-radius: 50%;
-            display: inline-block;
-            text-align: center;
-        }
-
-        .rank-1 { background: #f59e0b; color: #fff; }
-        .rank-2 { background: #94a3b8; color: #fff; }
-        .rank-3 { background: #d97706; color: #fff; }
-
-        /* FULLSCREEN GAME OVERLAY */
+        /* TRUE EDGE-TO-EDGE FULLSCREEN OVERLAY */
         .fullscreen-overlay {
             position: fixed;
             top: 0;
@@ -451,9 +219,9 @@
 
         .floating-btn {
             pointer-events: auto;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid var(--primary-blue);
-            color: var(--primary-blue);
+            background: rgba(5, 8, 17, 0.85);
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
             font-family: 'Orbitron', sans-serif;
             font-weight: 800;
             font-size: 0.85rem;
@@ -462,10 +230,11 @@
             backdrop-filter: blur(8px);
             cursor: pointer;
             text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
         }
 
         .close-btn {
-            background: var(--primary-blue);
+            background: rgba(255, 0, 127, 0.85);
             border: 2px solid #ffffff;
             color: #fff;
             width: 48px;
@@ -477,9 +246,16 @@
             font-size: 1.5rem;
             font-weight: 900;
             border-radius: 50%;
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.6);
             cursor: pointer;
+            transition: transform 0.2s ease;
         }
 
+        .close-btn:active {
+            transform: scale(0.9);
+        }
+
+        /* FULL EDGE-TO-EDGE VIEWPORT */
         .iframe-viewport {
             width: 100vw;
             height: 100vh;
@@ -500,360 +276,156 @@
             border: 0;
             outline: none;
             display: block;
-        }
-
-        /* LOGIN MODAL */
-        .modal-backdrop {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(15, 23, 42, 0.4);
-            backdrop-filter: blur(8px);
-            z-index: 20000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.2s ease;
-        }
-
-        .modal-backdrop.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .login-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 2.5rem;
-            width: 90%;
-            max-width: 400px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            position: relative;
-        }
-
-        .login-card h2 {
-            font-family: 'Orbitron', sans-serif;
-            color: #0f172a;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .input-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .input-group label {
-            display: block;
-            color: var(--text-sub);
-            font-size: 0.9rem;
-            margin-bottom: 0.4rem;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            background: rgba(255, 255, 255, 0.7);
-            border: 1px solid var(--glass-border);
-            border-radius: 8px;
-            color: var(--text-dark);
-            outline: none;
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 0.9rem;
-            background: linear-gradient(135deg, #2563eb, #3b82f6);
-            border: none;
-            border-radius: 10px;
-            color: #fff;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 800;
-            cursor: pointer;
-            margin-top: 0.5rem;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            color: var(--text-sub);
-            font-size: 1.5rem;
-            cursor: pointer;
-            border: none;
-            background: none;
-        }
-
-        footer {
-            margin-top: 3rem;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1rem;
-            letter-spacing: 1px;
-            padding: 1rem;
-            font-weight: 600;
-        }
-
-        footer strong {
-            color: #ffffff;
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 10px;
-                padding: 0.8rem;
-            }
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 0.4rem;
-            }
-            .nav-link {
-                font-size: 0.75rem;
-                padding: 0.3rem 0.6rem;
-            }
+            margin: 0;
+            padding: 0;
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-circle circle-1"></div>
-    <div class="bg-circle circle-2"></div>
-    <div class="bg-circle circle-3"></div>
-
-    <!-- NAVBAR -->
-    <nav>
-        <div class="nav-logo" onclick="showPage('games')">VENKY'S ARCADE</div>
-        <ul class="nav-links">
-            <li><a class="nav-link active" id="btn-games" onclick="showPage('games')">GAMES</a></li>
-            <li><a class="nav-link" id="btn-scores" onclick="showPage('scores')">HIGH SCORES</a></li>
-            <li><a class="nav-link" id="btn-about-games" onclick="showPage('about-games')">ABOUT GAMES</a></li>
-            <li><a class="nav-link" id="btn-about-me" onclick="showPage('about-me')">ABOUT ME</a></li>
-            <li><button class="login-btn-nav" id="user-login-btn" onclick="openLogin()">LOGIN</button></li>
-        </ul>
-    </nav>
-
     <header>
-        <h1>VENKY'S GAMING ARCADE</h1>
-        <p>Select a title to launch game</p>
+        <h1>🎮VENKY'S GAMING ARCADE🎮</h1>
+        <p>(Scroll for more games)</p>
+        <p>🕹️Enjoy the game🎯</p>
     </header>
 
-    <main class="main-container">
+    <main class="hub-container">
 
-        <!-- GAMES PAGE (MATCHING IMAGE LAYOUT) -->
-        <section class="page-section active" id="page-games">
-            <div class="glass-dashboard">
-                
-                <!-- SIDEBAR -->
-                <div class="dashboard-sidebar">
-                    <div class="profile-small">
-                        <img src="profile.jpg" alt="User">
-                        <span>Venkatesh</span>
-                    </div>
-
-                    <ul class="sidebar-menu">
-                        <li class="sidebar-item">📺 Streams</li>
-                        <li class="sidebar-item active">🎮 Games</li>
-                        <li class="sidebar-item">🗓️ Upcoming</li>
-                        <li class="sidebar-item">📚 Library</li>
-                    </ul>
-
-                    <div class="pro-banner">
-                        <p>Join Pro for Unlimited Free Games 🎮</p>
-                    </div>
+ <!-- Game 1: 2D Striker -->
+        <article class="game-card" onclick="openGame('https://venkateshchilveri99-source.github.io/2D-stricker/')">
+            <div class="thumbnail-box">
+                <span class="badge">ARCADE</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <linearGradient id="neonGlow" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#050515"/>
+                            <stop offset="100%" stop-color="#120c2e"/>
+                        </linearGradient>
+                        <filter id="glowEffect">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <rect width="400" height="250" fill="url(#neonGlow)"/>
+                    <g filter="url(#glowEffect)">
+                        <rect x="25" y="30" width="60" height="15" rx="3" fill="#ff0055"/>
+                        <rect x="92" y="30" width="60" height="15" rx="3" fill="#ff0055"/>
+                        <rect x="159" y="30" width="60" height="15" rx="3" fill="#ff0055"/>
+                        <rect x="226" y="30" width="60" height="15" rx="3" fill="#ff0055"/>
+                        <rect x="293" y="30" width="60" height="15" rx="3" fill="#ff0055"/>
+                    </g>
+                    <line x1="200" y1="200" x2="190" y2="78" stroke="#00f0ff" stroke-width="2" stroke-dasharray="4" opacity="0.8"/>
+                    <circle cx="190" cy="78" r="7" fill="#ffffff" filter="url(#glowEffect)"/>
+                    <rect x="140" y="200" width="120" height="12" rx="6" fill="#aa00ff" stroke="#00f0ff" stroke-width="2" filter="url(#glowEffect)"/>
+                </svg>
+            </div>
+            <div class="card-body">
+                <div>
+                    <h2 class="game-title">2D Striker</h2>
+                    <p class="game-desc">Classic neon brick breaker! Bounce the energy ball to shatter colourful laser blocks and achieve top scores.</p>
                 </div>
+                <button class="play-btn">LAUNCH GAME ➔</button>
+            </div>
+        </article>
 
-                <!-- MAIN CONTENT (ACTIVE GAMES) -->
-                <div class="dashboard-main">
-                    <h2>Active Games</h2>
-                    
-                    <div class="games-list">
-                        <!-- Game 1 -->
-                        <div class="game-row-card" onclick="openGame('https://venkateshchilveri99-source.github.io/2D-stricker/')">
-                            <div class="game-icon-box">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
-                                    <rect width="400" height="250" fill="#2563eb"/>
-                                    <circle cx="200" cy="125" r="50" fill="#06b6d4"/>
-                                </svg>
-                            </div>
-                            <div class="game-info">
-                                <h3>2D Striker</h3>
-                                <span>Arcade Version</span>
-                                <div class="progress-container">
-                                    <div class="progress-bar" style="width: 86%;"></div>
-                                </div>
-                            </div>
-                            <div class="percentage">86%</div>
-                        </div>
-
-                        <!-- Game 2 -->
-                        <div class="game-row-card" onclick="openGame('https://venkateshchilveri99-source.github.io/Reflex/')">
-                            <div class="game-icon-box">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
-                                    <rect width="400" height="250" fill="#0284c7"/>
-                                    <circle cx="200" cy="125" r="55" fill="#38bdf8"/>
-                                </svg>
-                            </div>
-                            <div class="game-info">
-                                <h3>Reflex</h3>
-                                <span>Speed Reaction</span>
-                                <div class="progress-container">
-                                    <div class="progress-bar" style="width: 70%;"></div>
-                                </div>
-                            </div>
-                            <div class="percentage">70%</div>
-                        </div>
-
-                        <!-- Game 3 -->
-                        <div class="game-row-card" onclick="openGame('https://venkateshchilveri99-source.github.io/space-shoot/')">
-                            <div class="game-icon-box">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
-                                    <rect width="400" height="250" fill="#1d4ed8"/>
-                                    <circle cx="200" cy="125" r="40" fill="#60a5fa"/>
-                                </svg>
-                            </div>
-                            <div class="game-info">
-                                <h3>Space Shooting 🚀</h3>
-                                <span>Action Shooter</span>
-                                <div class="progress-container">
-                                    <div class="progress-bar" style="width: 56%;"></div>
-                                </div>
-                            </div>
-                            <div class="percentage">56%</div>
-                        </div>
-
-                        <!-- Game 4 -->
-                        <div class="game-row-card" onclick="openGame('https://venkateshchilveri99-source.github.io/Number-Guess-game/')">
-                            <div class="game-icon-box">
-                                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop" alt="Matrix Code">
-                            </div>
-                            <div class="game-info">
-                                <h3>Quantum Guess</h3>
-                                <span>Logic Puzzle</span>
-                                <div class="progress-container">
-                                    <div class="progress-bar" style="width: 92%;"></div>
-                                </div>
-                            </div>
-                            <div class="percentage">92%</div>
-                        </div>
-
-                    </div>
+        <!-- Game 2: Reflex -->
+        <article class="game-card green-card" onclick="openGame('https://venkateshchilveri99-source.github.io/Reflex/')">
+            <div class="thumbnail-box">
+                <span class="badge">REACTION</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <radialGradient id="greenGlow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#00ff66"/>
+                            <stop offset="60%" stop-color="#00cc44"/>
+                            <stop offset="100%" stop-color="#003311" stop-opacity="0"/>
+                        </radialGradient>
+                    </defs>
+                    <rect width="400" height="250" fill="#181534"/>
+                    <circle cx="200" cy="125" r="55" fill="#00ff66"/>
+                </svg>
+            </div>
+            <div class="card-body">
+                <div>
+                    <h2 class="game-title">Reflex</h2>
+                    <p class="game-desc">Test your speed! Tap the screen the exact millisecond the target circle flashes neon green.</p>
                 </div>
-
+                <button class="play-btn">LAUNCH GAME ➔</button>
             </div>
-        </section>
+        </article>
 
-        <!-- HIGH SCORES & TOP PLAYERS -->
-        <section class="page-section" id="page-scores">
-            <div class="content-card">
-                <h2>🏆 TOP PLAYERS & HIGH SCORES</h2>
-                <table class="leader-table">
-                    <thead>
-                        <tr>
-                            <th>Rank</th>
-                            <th>Player</th>
-                            <th>Game</th>
-                            <th>High Score</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><span class="rank-badge rank-1">1</span></td>
-                            <td><strong>Venky_Pro</strong></td>
-                            <td>Space Shooting 🚀</td>
-                            <td>24,500 pts</td>
-                        </tr>
-                        <tr>
-                            <td><span class="rank-badge rank-2">2</span></td>
-                            <td><strong>Kartik</strong></td>
-                            <td>2D Striker</td>
-                            <td>18,200 pts</td>
-                        </tr>
-                        <tr>
-                            <td><span class="rank-badge rank-3">3</span></td>
-                            <td><strong>Prathamesh</strong></td>
-                            <td>Reflex</td>
-                            <td>142 ms</td>
-                        </tr>
-                        <tr>
-                            <td><span class="rank-badge">4</span></td>
-                            <td><strong>Nikhil</strong></td>
-                            <td>Quantum Guess</td>
-                            <td>100% Accuracy</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <!-- Game 3: Space Shooting 🚀 -->
+        <article class="game-card pink-card" onclick="openGame('https://venkateshchilveri99-source.github.io/space-shoot/')">
+            <div class="thumbnail-box">
+                <span class="badge">ACTION</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <linearGradient id="skyBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#2a75ff"/>
+                            <stop offset="50%" stop-color="#6033e0"/>
+                            <stop offset="100%" stop-color="#8a18c0"/>
+                        </linearGradient>
+                        <linearGradient id="rocketBody" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffffff"/>
+                            <stop offset="100%" stop-color="#e2e8f0"/>
+                        </linearGradient>
+                        <linearGradient id="redNose" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ff4d4d"/>
+                            <stop offset="100%" stop-color="#cc0033"/>
+                        </linearGradient>
+                        <linearGradient id="fireGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffea00"/>
+                            <stop offset="50%" stop-color="#ff7700"/>
+                            <stop offset="100%" stop-color="#ff0055" stop-opacity="0"/>
+                        </linearGradient>
+                    </defs>
+
+                    <rect width="400" height="250" fill="url(#skyBg)"/>
+
+                    <path d="M -20,220 Q 30,170 90,200 Q 150,160 210,210 Q 270,170 330,220 Z" fill="#ffffff" opacity="0.3"/>
+                    <path d="M 220,250 Q 280,200 340,230 Q 380,190 420,250 Z" fill="#ffffff" opacity="0.5"/>
+
+                    <g transform="translate(200, 115) rotate(-35)">
+                        <path d="M -80,0 Q -140,-25 -170,0 Q -140,25 -80,0 Z" fill="url(#fireGrad)"/>
+                        <path d="M -50,-25 Q -80,-60 -10,-45 Z" fill="url(#redNose)"/>
+                        <path d="M -50,25 Q -80,60 -10,45 Z" fill="url(#redNose)"/>
+                        <path d="M -70,-35 C -20,-45 40,-40 90,0 C 40,40 -20,45 -70,35 Z" fill="url(#rocketBody)"/>
+                        <path d="M 35,-22 C 55,-15 75,-8 90,0 C 75,8 55,15 35,22 Z" fill="url(#redNose)"/>
+                        <circle cx="10" cy="0" r="18" fill="#ff4d4d"/>
+                        <circle cx="10" cy="0" r="14" fill="#1e293b"/>
+                        <circle cx="10" cy="0" r="11" fill="#00f0ff"/>
+                        <circle cx="14" cy="-4" r="3" fill="#ffffff" opacity="0.8"/>
+                    </g>
+                </svg>
             </div>
-        </section>
-
-        <!-- ABOUT GAMES -->
-        <section class="page-section" id="page-about-games">
-            <div class="content-card">
-                <h2>🎮 ABOUT THE GAMES</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
-                    <div>
-                        <h3>2D Striker</h3>
-                        <p>Classic arcade brick-breaker built using HTML5 Canvas.</p>
-                    </div>
-                    <div>
-                        <h3>Reflex</h3>
-                        <p>Fast-paced reaction testing game in milliseconds.</p>
-                    </div>
-                    <div>
-                        <h3>Space Shooting 🚀</h3>
-                        <p>Retro top-down space shooter with hazards.</p>
-                    </div>
-                    <div>
-                        <h3>Quantum Guess</h3>
-                        <p>Numeric logic puzzle designed for deduction.</p>
-                    </div>
+            <div class="card-body">
+                <div>
+                    <h2 class="game-title">Space Shooting 🚀</h2>
+                    <p class="game-desc">Blast off into deep space! Pilot your rocket, dodge incoming hazards, and shoot down alien fleets.</p>
                 </div>
+                <button class="play-btn">LAUNCH GAME ➔</button>
             </div>
-        </section>
+        </article>
 
-        <!-- ABOUT ME SECTION -->
-        <section class="page-section" id="page-about-me">
-            <div class="content-card">
-                <h2>ABOUT ME</h2>
-                <p style="font-size: 1.1rem; margin-bottom: 1rem;">Welcome to <strong>Venky's Arcade</strong>!</p>
-                <p>Created by <strong>Venkatesh Chilveri</strong> to showcase high-performance HTML5 browser games in a modern frosted glass interface.</p>
+        <!-- Game 4: Quantum Guess -->
+        <article class="game-card" onclick="openGame('https://venkateshchilveri99-source.github.io/Number-Guess-game/')">
+            <div class="thumbnail-box">
+                <span class="badge">PUZZLE</span>
+                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop" style="object-fit: cover;" alt="Quantum Guess Code Matrix">
             </div>
-        </section>
+            <div class="card-body">
+                <div>
+                    <h2 class="game-title">Quantum Guess</h2>
+                    <p class="game-desc">A code-cracking number challenge. Guess secret codes with dynamic hints and track your high score.</p>
+                </div>
+                <button class="play-btn">LAUNCH GAME ➔</button>
+            </div>
+        </article>
 
     </main>
 
-    <!-- LOGIN MODAL -->
-    <div class="modal-backdrop" id="loginModal">
-        <div class="login-card">
-            <button class="modal-close" onclick="closeLogin()">✕</button>
-            <h2>PLAYER LOGIN</h2>
-            <form onsubmit="handleLogin(event)">
-                <div class="input-group">
-                    <label for="username">GAMERTAG</label>
-                    <input type="text" id="username" placeholder="Enter username" required>
-                </div>
-                <div class="input-group">
-                    <label for="password">PASSWORD</label>
-                    <input type="password" id="password" placeholder="••••••••" required>
-                </div>
-                <button type="submit" class="submit-btn">LOG IN ➔</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- FULLSCREEN GAME OVERLAY -->
     <div class="fullscreen-overlay" id="gameOverlay">
         <div class="floating-controls">
             <button class="floating-btn close-btn" onclick="closeGame()">✕</button>
@@ -864,26 +436,14 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>Created by <strong>Venkatesh Chilveri</strong> | Venky's Arcade © 2026</p>
-    </footer>
-
     <script>
-        function showPage(pageId) {
-            document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
-            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-
-            document.getElementById('page-' + pageId).classList.add('active');
-            document.getElementById('btn-' + pageId).classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
         function openGame(url) {
             document.body.style.overflow = 'hidden';
             const frame = document.getElementById('gameFrame');
             frame.src = 'about:blank';
-            setTimeout(() => { frame.src = url; }, 50);
+            setTimeout(() => {
+                frame.src = url;
+            }, 50);
             document.getElementById('directLink').href = url;
             document.getElementById('gameOverlay').classList.add('active');
         }
@@ -892,23 +452,6 @@
             document.body.style.overflow = '';
             document.getElementById('gameOverlay').classList.remove('active');
             document.getElementById('gameFrame').src = '';
-        }
-
-        function openLogin() {
-            document.getElementById('loginModal').classList.add('active');
-        }
-
-        function closeLogin() {
-            document.getElementById('loginModal').classList.remove('active');
-        }
-
-        function handleLogin(e) {
-            e.preventDefault();
-            const username = document.getElementById('username').value;
-            if (username) {
-                document.getElementById('user-login-btn').innerText = username.toUpperCase();
-                closeLogin();
-            }
         }
     </script>
 
