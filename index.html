@@ -657,4 +657,242 @@
                     </div>
                     <div class="card-body">
                         <div>
-                            <h2 class
+                            <h2 class="game-title">2D Striker</h2>
+                            <p class="game-desc">Classic brick breaker! Bounce the energy ball to shatter colorful blocks and achieve top scores.</p>
+                        </div>
+                        <button class="play-btn">LAUNCH GAME ➔</button>
+                    </div>
+                </article>
+
+                <!-- Game 2 -->
+                <article class="game-card" onclick="openGame('https://venkateshchilveri99-source.github.io/Reflex/')">
+                    <div class="thumbnail-box">
+                        <span class="badge">REACTION</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
+                            <rect width="400" height="250" fill="#dbeafe"/>
+                            <circle cx="200" cy="125" r="55" fill="#06b6d4"/>
+                        </svg>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h2 class="game-title">Reflex</h2>
+                            <p class="game-desc">Test your speed! Tap the screen the exact millisecond the target circle flashes blue.</p>
+                        </div>
+                        <button class="play-btn">LAUNCH GAME ➔</button>
+                    </div>
+                </article>
+
+                <!-- Game 3 -->
+                <article class="game-card" onclick="openGame('https://venkateshchilveri99-source.github.io/space-shoot/')">
+                    <div class="thumbnail-box">
+                        <span class="badge">ACTION</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
+                            <rect width="400" height="250" fill="#bfdbfe"/>
+                            <g transform="translate(200, 115) rotate(-35)">
+                                <circle cx="10" cy="0" r="18" fill="#2563eb"/>
+                                <circle cx="10" cy="0" r="11" fill="#06b6d4"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h2 class="game-title">Space Shooting 🚀</h2>
+                            <p class="game-desc">Blast off into deep space! Pilot your rocket, dodge incoming hazards, and shoot down alien fleets.</p>
+                        </div>
+                        <button class="play-btn">LAUNCH GAME ➔</button>
+                    </div>
+                </article>
+
+                <!-- Game 4 -->
+                <article class="game-card" onclick="openGame('https://venkateshchilveri99-source.github.io/Number-Guess-game/')">
+                    <div class="thumbnail-box">
+                        <span class="badge">PUZZLE</span>
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop" style="object-fit: cover;" alt="Matrix Code">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h2 class="game-title">Quantum Guess</h2>
+                            <p class="game-desc">A code-cracking number challenge. Guess secret codes with dynamic hints and track your high score.</p>
+                        </div>
+                        <button class="play-btn">LAUNCH GAME ➔</button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- HIGH SCORES & TOP PLAYERS -->
+        <section class="page-section" id="page-scores">
+            <div class="content-card">
+                <h2>🏆 TOP PLAYERS & HIGH SCORES</h2>
+                <table class="leader-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Player</th>
+                            <th>Game</th>
+                            <th>High Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="rank-badge rank-1">1</span></td>
+                            <td><strong>Venky_Pro</strong></td>
+                            <td>Space Shooting 🚀</td>
+                            <td>24,500 pts</td>
+                        </tr>
+                        <tr>
+                            <td><span class="rank-badge rank-2">2</span></td>
+                            <td><strong>Kartik</strong></td>
+                            <td>2D Striker</td>
+                            <td>18,200 pts</td>
+                        </tr>
+                        <tr>
+                            <td><span class="rank-badge rank-3">3</span></td>
+                            <td><strong>Prathamesh</strong></td>
+                            <td>Reflex</td>
+                            <td>142 ms</td>
+                        </tr>
+                        <tr>
+                            <td><span class="rank-badge">4</span></td>
+                            <td><strong>Nikhil</strong></td>
+                            <td>Quantum Guess</td>
+                            <td>100% Accuracy</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ABOUT GAMES -->
+        <section class="page-section" id="page-about-games">
+            <div class="content-card">
+                <h2>🎮 ABOUT THE GAMES</h2>
+                <div class="game-about-grid">
+                    <div class="game-about-box">
+                        <h3>2D Striker</h3>
+                        <p>Classic arcade brick-breaker built using HTML5 Canvas with smooth touch controls.</p>
+                    </div>
+                    <div class="game-about-box">
+                        <h3>Reflex</h3>
+                        <p>A fast-paced reaction testing game to measure your visual tap reaction speed in milliseconds.</p>
+                    </div>
+                    <div class="game-about-box">
+                        <h3>Space Shooting 🚀</h3>
+                        <p>Retro top-down space shooter with hazards, enemy targets, and action gameplay.</p>
+                    </div>
+                    <div class="game-about-box">
+                        <h3>Quantum Guess</h3>
+                        <p>Numeric logic puzzle designed to challenge deduction and strategy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT ME SECTION WITH PHOTO -->
+        <section class="page-section" id="page-about-me">
+            <div class="content-card">
+                <h2>ABOUT ME</h2>
+                <div class="profile-container">
+                    <div class="profile-img-box">
+                        <!-- Save your portrait photo as profile.jpg in the same directory as this index.html file -->
+                        <img src="profile.jpg" alt="Venkatesh Chilveri">
+                    </div>
+                    <div class="profile-info">
+                        <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text-color); margin-bottom: 1rem; font-weight: 600;">
+                            Welcome to <strong>Venky's Arcade</strong>!
+                        </p>
+                        <p style="font-size: 1.05rem; line-height: 1.6; color: var(--text-sub); margin-bottom: 1.5rem; font-weight: 500;">
+                            Created by <strong>Venkatesh Chilveri</strong> to showcase high-performance HTML5 browser games in a clean, sky-blue modern arcade interface.
+                        </p>
+                        <div style="background: rgba(37, 99, 235, 0.08); border-left: 4px solid var(--primary-blue); padding: 1rem; border-radius: 4px; font-weight: 600;">
+                            <span style="color: var(--primary-blue); font-weight: 700;">Developer:</span> Venkatesh Chilveri<br>
+                            <span style="color: var(--primary-blue); font-weight: 700;">Platform:</span> GitHub Pages / HTML5
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- LOGIN MODAL -->
+    <div class="modal-backdrop" id="loginModal">
+        <div class="login-card">
+            <button class="modal-close" onclick="closeLogin()">✕</button>
+            <h2>PLAYER LOGIN</h2>
+            <form onsubmit="handleLogin(event)">
+                <div class="input-group">
+                    <label for="username">GAMERTAG</label>
+                    <input type="text" id="username" placeholder="Enter username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">PASSWORD</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="submit-btn">LOG IN ➔</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FULLSCREEN GAME OVERLAY -->
+    <div class="fullscreen-overlay" id="gameOverlay">
+        <div class="floating-controls">
+            <button class="floating-btn close-btn" onclick="closeGame()">✕</button>
+            <a id="directLink" class="floating-btn" href="#" target="_blank">DIRECT ↗</a>
+        </div>
+        <div class="iframe-viewport">
+            <iframe class="game-iframe" id="gameFrame" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-modals"></iframe>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Created by <strong>Venkatesh Chilveri</strong> | Venky's Arcade © 2026</p>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+
+            document.getElementById('page-' + pageId).classList.add('active');
+            document.getElementById('btn-' + pageId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function openGame(url) {
+            document.body.style.overflow = 'hidden';
+            const frame = document.getElementById('gameFrame');
+            frame.src = 'about:blank';
+            setTimeout(() => { frame.src = url; }, 50);
+            document.getElementById('directLink').href = url;
+            document.getElementById('gameOverlay').classList.add('active');
+        }
+
+        function closeGame() {
+            document.body.style.overflow = '';
+            document.getElementById('gameOverlay').classList.remove('active');
+            document.getElementById('gameFrame').src = '';
+        }
+
+        function openLogin() {
+            document.getElementById('loginModal').classList.add('active');
+        }
+
+        function closeLogin() {
+            document.getElementById('loginModal').classList.remove('active');
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            if (username) {
+                document.getElementById('user-login-btn').innerText = username.toUpperCase();
+                closeLogin();
+            }
+        }
+    </script>
+
+</body>
+</html>
