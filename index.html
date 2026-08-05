@@ -320,7 +320,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: top center; /* Focuses on your face */
+            object-position: top center;
             border-radius: 50%;
             display: block;
         }
@@ -632,9 +632,9 @@
         <!-- GAMES PAGE -->
         <section class="page-section active" id="page-games">
             <div class="hub-container">
-                
+
                 <!-- Game 1 -->
-                  <article class="game-card" onclick="openGame('https://venkateshchilveri99-source.github.io/2D-stricker/')">
+                <article class="game-card" onclick="openGame('https://venkateshchilveri99-source.github.io/2D-stricker/')">
                     <div class="thumbnail-box">
                         <span class="badge">ARCADE</span>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
@@ -681,59 +681,57 @@
                     </div>
                 </article>
 
-               
-                      <!-- Game 3: Space Shooting 🚀 -->
-        <article class="game-card pink-card" onclick="openGame('https://venkateshchilveri99-source.github.io/space-shoot/')">
-            <div class="thumbnail-box">
-                <span class="badge">ACTION</span>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
-                    <defs>
-                        <linearGradient id="skyBg" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#2a75ff"/>
-                            <stop offset="50%" stop-color="#6033e0"/>
-                            <stop offset="100%" stop-color="#8a18c0"/>
-                        </linearGradient>
-                        <linearGradient id="rocketBody" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#ffffff"/>
-                            <stop offset="100%" stop-color="#e2e8f0"/>
-                        </linearGradient>
-                        <linearGradient id="redNose" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#ff4d4d"/>
-                            <stop offset="100%" stop-color="#cc0033"/>
-                        </linearGradient>
-                        <linearGradient id="fireGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#ffea00"/>
-                            <stop offset="50%" stop-color="#ff7700"/>
-                            <stop offset="100%" stop-color="#ff0055" stop-opacity="0"/>
-                        </linearGradient>
-                    </defs>
+                <!-- Game 3: Space Shooting 🚀 -->
+                <article class="game-card pink-card" onclick="openGame('https://venkateshchilveri99-source.github.io/space-shoot/')">
+                    <div class="thumbnail-box">
+                        <span class="badge">ACTION</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
+                            <defs>
+                                <linearGradient id="skyBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#2a75ff"/>
+                                    <stop offset="50%" stop-color="#6033e0"/>
+                                    <stop offset="100%" stop-color="#8a18c0"/>
+                                </linearGradient>
+                                <linearGradient id="rocketBody" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#ffffff"/>
+                                    <stop offset="100%" stop-color="#e2e8f0"/>
+                                </linearGradient>
+                                <linearGradient id="redNose" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#ff4d4d"/>
+                                    <stop offset="100%" stop-color="#cc0033"/>
+                                </linearGradient>
+                                <linearGradient id="fireGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#ffea00"/>
+                                    <stop offset="50%" stop-color="#ff7700"/>
+                                    <stop offset="100%" stop-color="#ff0055" stop-opacity="0"/>
+                                </linearGradient>
+                            </defs>
 
-                    <rect width="400" height="250" fill="url(#skyBg)"/>
+                            <rect width="400" height="250" fill="url(#skyBg)"/>
+                            <path d="M -20,220 Q 30,170 90,200 Q 150,160 210,210 Q 270,170 330,220 Z" fill="#ffffff" opacity="0.3"/>
+                            <path d="M 220,250 Q 280,200 340,230 Q 380,190 420,250 Z" fill="#ffffff" opacity="0.5"/>
 
-                    <path d="M -20,220 Q 30,170 90,200 Q 150,160 210,210 Q 270,170 330,220 Z" fill="#ffffff" opacity="0.3"/>
-                    <path d="M 220,250 Q 280,200 340,230 Q 380,190 420,250 Z" fill="#ffffff" opacity="0.5"/>
-
-                    <g transform="translate(200, 115) rotate(-35)">
-                        <path d="M -80,0 Q -140,-25 -170,0 Q -140,25 -80,0 Z" fill="url(#fireGrad)"/>
-                        <path d="M -50,-25 Q -80,-60 -10,-45 Z" fill="url(#redNose)"/>
-                        <path d="M -50,25 Q -80,60 -10,45 Z" fill="url(#redNose)"/>
-                        <path d="M -70,-35 C -20,-45 40,-40 90,0 C 40,40 -20,45 -70,35 Z" fill="url(#rocketBody)"/>
-                        <path d="M 35,-22 C 55,-15 75,-8 90,0 C 75,8 55,15 35,22 Z" fill="url(#redNose)"/>
-                        <circle cx="10" cy="0" r="18" fill="#ff4d4d"/>
-                        <circle cx="10" cy="0" r="14" fill="#1e293b"/>
-                        <circle cx="10" cy="0" r="11" fill="#00f0ff"/>
-                        <circle cx="14" cy="-4" r="3" fill="#ffffff" opacity="0.8"/>
-                    </g>
-                </svg>
-            </div>
-            <div class="card-body">
-                <div>
-                    <h2 class="game-title">Space Shooting 🚀</h2>
-                    <p class="game-desc">Blast off into deep space! Pilot your rocket, dodge incoming hazards, and shoot down alien fleets.</p>
-                </div>
-                <button class="play-btn">LAUNCH GAME ➔</button>
-            </div>
-        </article>
+                            <g transform="translate(200, 115) rotate(-35)">
+                                <path d="M -80,0 Q -140,-25 -170,0 Q -140,25 -80,0 Z" fill="url(#fireGrad)"/>
+                                <path d="M -50,-25 Q -80,-60 -10,-45 Z" fill="url(#redNose)"/>
+                                <path d="M -50,25 Q -80,60 -10,45 Z" fill="url(#redNose)"/>
+                                <path d="M -70,-35 C -20,-45 40,-40 90,0 C 40,40 -20,45 -70,35 Z" fill="url(#rocketBody)"/>
+                                <path d="M 35,-22 C 55,-15 75,-8 90,0 C 75,8 55,15 35,22 Z" fill="url(#redNose)"/>
+                                <circle cx="10" cy="0" r="18" fill="#ff4d4d"/>
+                                <circle cx="10" cy="0" r="14" fill="#1e293b"/>
+                                <circle cx="10" cy="0" r="11" fill="#00f0ff"/>
+                                <circle cx="14" cy="-4" r="3" fill="#ffffff" opacity="0.8"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h2 class="game-title">Space Shooting 🚀</h2>
+                            <p class="game-desc">Blast off into deep space! Pilot your rocket, dodge incoming hazards, and shoot down alien fleets.</p>
+                        </div>
+                        <button class="play-btn">LAUNCH GAME ➔</button>
+                    </div>
+                </article>
 
                 <!-- Game 4 -->
                 <article class="game-card" onclick="openGame('https://venkateshchilveri99-source.github.io/Number-Guess-game/')">
@@ -745,6 +743,65 @@
                         <div>
                             <h2 class="game-title">Quantum Guess</h2>
                             <p class="game-desc">A code-cracking number challenge. Guess secret codes with dynamic hints and track your high score.</p>
+                        </div>
+                        <button class="play-btn">LAUNCH GAME ➔</button>
+                    </div>
+                </article>
+
+                <!-- Game 5: Helix Ball 🌀 -->
+                <article class="game-card green-card" onclick="openGame('https://venkateshchilveri99-source.github.io/HELIX-BALL/')">
+                    <div class="thumbnail-box">
+                        <span class="badge">3D ARCADE</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
+                            <defs>
+                                <linearGradient id="helixBgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#4db4ff"/>
+                                    <stop offset="50%" stop-color="#7379f8"/>
+                                    <stop offset="100%" stop-color="#cf78ce"/>
+                                </linearGradient>
+                                <linearGradient id="ballShine" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#80f3ff"/>
+                                    <stop offset="60%" stop-color="#00d8ff"/>
+                                    <stop offset="100%" stop-color="#008cb3"/>
+                                </linearGradient>
+                                <linearGradient id="poleShade" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#dedede"/>
+                                    <stop offset="50%" stop-color="#ffffff"/>
+                                    <stop offset="100%" stop-color="#cccccc"/>
+                                </linearGradient>
+                            </defs>
+                            
+                            <!-- Soft Sky-Blue to Pink Gradient Background -->
+                            <rect width="400" height="250" fill="url(#helixBgGradient)"/>
+                            
+                            <!-- Black Helix Base Stack -->
+                            <ellipse cx="200" cy="240" rx="140" ry="40" fill="#111822"/>
+                            <path d="M 60,180 A 140 40 0 0 0 340,180 L 340,240 A 140 40 0 0 1 60,240 Z" fill="#181f2b"/>
+                            <path d="M 60,165 A 140 40 0 0 0 340,165 L 340,195 A 140 40 0 0 1 60,195 Z" fill="#202938"/>
+                            
+                            <!-- Blue Helix Segmented Disc Platform -->
+                            <g fill="#00d2ff" stroke="#00aacc" stroke-width="1.5">
+                                <path d="M 60,150 A 140 40 0 0 1 340,150 L 310,150 A 110 30 0 0 0 90,150 Z"/>
+                                <path d="M 60,150 A 140 40 0 0 0 340,150 L 340,165 A 140 40 0 0 1 60,165 Z" fill="#00b4e0"/>
+                                <!-- Segment Lines -->
+                                <line x1="200" y1="110" x2="200" y2="150" stroke="#00aacc" stroke-width="1.5"/>
+                                <line x1="130" y1="120" x2="110" y2="152" stroke="#00aacc" stroke-width="1.5"/>
+                                <line x1="270" y1="120" x2="290" y2="152" stroke="#00aacc" stroke-width="1.5"/>
+                            </g>
+                            
+                            <!-- White Central Pole Column -->
+                            <rect x="160" y="20" width="80" height="135" rx="5" fill="url(#poleShade)"/>
+                            <ellipse cx="200" cy="20" rx="40" ry="12" fill="#ffffff"/>
+                            
+                            <!-- Cyan Bouncing Ball -->
+                            <circle cx="200" cy="118" r="24" fill="url(#ballShine)"/>
+                            <ellipse cx="192" cy="110" rx="8" ry="5" fill="#ffffff" opacity="0.6" transform="rotate(-20 192 110)"/>
+                        </svg>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h2 class="game-title">Helix Ball 🌀</h2>
+                            <p class="game-desc">Navigate the bouncing ball down the spinning helix tower! Drop through gaps, avoid obstacles, and survive.</p>
                         </div>
                         <button class="play-btn">LAUNCH GAME ➔</button>
                     </div>
@@ -816,6 +873,10 @@
                     <div class="game-about-box">
                         <h3>Quantum Guess</h3>
                         <p>Numeric logic puzzle designed to challenge deduction and strategy.</p>
+                    </div>
+                    <div class="game-about-box">
+                        <h3>Helix Ball 🌀</h3>
+                        <p>A precision arcade drop game where you rotate the helix structure to drop the bouncing ball safely through platform gaps.</p>
                     </div>
                 </div>
             </div>
